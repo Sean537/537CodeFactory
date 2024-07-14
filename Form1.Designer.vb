@@ -192,19 +192,19 @@ Partial Class Form1
         Me.ToolStripMenuItem1.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.修改HTML编辑器字体ToolStripMenuItem, Me.修改Markdown编辑器字体ToolStripMenuItem})
         Me.ToolStripMenuItem1.Name = "ToolStripMenuItem1"
         Me.ToolStripMenuItem1.Size = New System.Drawing.Size(68, 21)
-        Me.ToolStripMenuItem1.Text = "字体修改"
+        Me.ToolStripMenuItem1.Text = "字体(&O)"
         '
         '修改HTML编辑器字体ToolStripMenuItem
         '
-        Me.修改HTML编辑器字体ToolStripMenuItem.Name = "修改HTML编辑器字体ToolStripMenuItem"
+        Me.修改HTML编辑器字体ToolStripMenuItem.Name = "HTML编辑器ToolStripMenuItem"
         Me.修改HTML编辑器字体ToolStripMenuItem.Size = New System.Drawing.Size(223, 22)
-        Me.修改HTML编辑器字体ToolStripMenuItem.Text = "修改HTML编辑器字体"
+        Me.修改HTML编辑器字体ToolStripMenuItem.Text = "HTML编辑器(&H)"
         '
         '修改Markdown编辑器字体ToolStripMenuItem
         '
-        Me.修改Markdown编辑器字体ToolStripMenuItem.Name = "修改Markdown编辑器字体ToolStripMenuItem"
+        Me.修改Markdown编辑器字体ToolStripMenuItem.Name = "Markdown编辑器ToolStripMenuItem"
         Me.修改Markdown编辑器字体ToolStripMenuItem.Size = New System.Drawing.Size(223, 22)
-        Me.修改Markdown编辑器字体ToolStripMenuItem.Text = "修改Markdown编辑器字体"
+        Me.修改Markdown编辑器字体ToolStripMenuItem.Text = "Markdown编辑器(&M)"
         '
         '帮助HToolStripMenuItem
         '
