@@ -1,6 +1,7 @@
 ﻿Imports System.IO
 Imports System.Text
 Imports Markdig
+Imports ScintillaNET
 
 
 Public Class Form1
@@ -15,8 +16,67 @@ Public Class Form1
         SaveFileDialog2.Filter = "MarkDown文件(*.md)|*.md"
         Me.Text = My.Application.Info.Title + String.Format("版本 V {0}", My.Application.Info.Version.ToString)
 
-    End Sub
 
+        ConfigureScintillaHTML()
+        ConfigureScintillamarkdown()
+    End Sub
+    Private Sub ConfigureScintillaHTML()
+
+        ' 定义 HTML 标签样式
+        ScintillaHTMLL.Styles(ScintillaNET.Style.Html.Tag).ForeColor = Color.Blue
+        ScintillaHTMLL.Styles(ScintillaNET.Style.Html.Tag).BackColor = Color.White
+
+        ' 定义 HTML 属性样式
+        ScintillaHTMLL.Styles(ScintillaNET.Style.Html.Attribute).ForeColor = Color.Green
+        ScintillaHTMLL.Styles(ScintillaNET.Style.Html.Attribute).BackColor = Color.White
+
+        ' 定义 HTML 字符串样式
+        ScintillaHTMLL.Styles(ScintillaNET.Style.Html.DoubleString).ForeColor = Color.Gray
+        ScintillaHTMLL.Styles(ScintillaNET.Style.Html.DoubleString).BackColor = Color.White
+
+        ' 定义 HTML 注释样式
+        ScintillaHTMLL.Styles(ScintillaNET.Style.Html.Comment).ForeColor = Color.LightGray
+        ScintillaHTMLL.Styles(ScintillaNET.Style.Html.Comment).BackColor = Color.White
+
+        '行号
+        ScintillaHTMLL.Margins(0).Type = MarginType.Number
+        ScintillaHTMLL.Margins(0).Width = 40
+    End Sub
+    Private Sub ConfigureScintillamarkdown()
+
+
+        ' 定义 Markdown 标签样式
+        Scintillamarkdown.Styles(Style.Markdown.Header1).ForeColor = Color.Blue
+        Scintillamarkdown.Styles(Style.Markdown.Header1).BackColor = Color.White
+
+        Scintillamarkdown.Styles(Style.Markdown.Header2).ForeColor = Color.Blue
+        Scintillamarkdown.Styles(Style.Markdown.Header2).BackColor = Color.White
+
+        Scintillamarkdown.Styles(Style.Markdown.Header3).ForeColor = Color.Blue
+        Scintillamarkdown.Styles(Style.Markdown.Header3).BackColor = Color.White
+
+        Scintillamarkdown.Styles(Style.Markdown.Header4).ForeColor = Color.Blue
+        Scintillamarkdown.Styles(Style.Markdown.Header4).BackColor = Color.White
+
+        Scintillamarkdown.Styles(Style.Markdown.Header5).ForeColor = Color.Blue
+        Scintillamarkdown.Styles(Style.Markdown.Header5).BackColor = Color.White
+
+        Scintillamarkdown.Styles(Style.Markdown.Header6).ForeColor = Color.Blue
+        Scintillamarkdown.Styles(Style.Markdown.Header6).BackColor = Color.White
+        ' 定义 Markdown 链接样式
+        Scintillamarkdown.Styles(Style.Markdown.Link).ForeColor = Color.Blue
+        Scintillamarkdown.Styles(Style.Markdown.Link).Underline = True
+
+        ' 定义 Markdown 代码样式
+        Scintillamarkdown.Styles(Style.Markdown.Code).ForeColor = Color.Green
+        Scintillamarkdown.Styles(Style.Markdown.Code).BackColor = Color.White
+
+        ' 设置行号
+        Scintillamarkdown.Margins(0).Type = MarginType.Number
+        Scintillamarkdown.Margins(0).Width = 40
+
+        ' 其他相关设置...
+    End Sub
 
 
 
@@ -38,7 +98,7 @@ Public Class Form1
         End If
 
         ' 检查RichTextBox1和RichTextBox2是否为空
-        If String.IsNullOrWhiteSpace(RichTextBoxHTML.Text) AndAlso String.IsNullOrWhiteSpace(RichTextBoxmarkdown.Text) Then
+        If String.IsNullOrWhiteSpace(ScintillaHTMLL.Text) AndAlso String.IsNullOrWhiteSpace(Scintillamarkdown.Text) Then
             ' 如果两个RichTextBox都是空的，允许关闭
             e.Cancel = False
         Else
@@ -66,8 +126,8 @@ Public Class Form1
     Private Sub 保存HTML文件ToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles 保存HTML文件ToolStripMenuItem.Click
         ' 显示 SaveFileDialog
         If SaveFileDialog1.ShowDialog() = DialogResult.OK Then
-            ' 将 RichTextBox 的内容转换为 HTML 并保存到文件
-            Saveashtml(RichTextBoxHTML.Text, SaveFileDialog1.FileName)
+            ' 将Scintillamarkdown 的内容转换为 HTML 并保存到文件
+            Saveashtml(ScintillaHTMLL.Text, SaveFileDialog1.FileName)
         End If
     End Sub
 
@@ -85,72 +145,45 @@ Public Class Form1
 
 
 
-    Private Sub 保存MarkDown文件ToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles 保存MarkDown文件ToolStripMenuItem.Click
+    Private Sub 保存MarkDown文件ToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles 保存Markdown文件ToolStripMenuItem.Click
         If SaveFileDialog2.ShowDialog() = DialogResult.OK Then
-            ' 保存 RichTextBox2 的内容为 Markdown 文件
-            System.IO.File.WriteAllText(SaveFileDialog2.FileName, RichTextBoxmarkdown.Text)
+            ' 保存Scintillamarkdown2 的内容为 Markdown 文件
+            System.IO.File.WriteAllText(SaveFileDialog2.FileName,Scintillamarkdown.Text)
         End If
     End Sub
 
 
 
-    Private Sub RichTextBoxHTML_TextChanged_(sender As Object, e As EventArgs) Handles RichTextBoxHTML.TextChanged
-        ToolStripLabel1.Text = "字数为：" & RichTextBoxHTML.TextLength
-        ToolStripTextBox1.Text = ""
-        ToolStripTextBox2.Text = ""
-        Dim HTMLcontent As String = RichTextBoxHTML.Text
-        WebViewHTML.NavigateToString(HTMLcontent)
-        WebBrowser1.DocumentText = HTMLcontent
-        Dim rtb As RichTextBox = DirectCast(sender, RichTextBox)
-        UpdateLineInfo(rtb)
+
+
+    Private Sub Scintillamarkdownmarkdown_TextChanged_1(sender As Object, e As EventArgs)
+
+
     End Sub
 
-    Private Sub RichTextBoxmarkdown_TextChanged_1(sender As Object, e As EventArgs) Handles RichTextBoxmarkdown.TextChanged
-        ToolStripLabel1.Text = "字数为：" & RichTextBoxmarkdown.TextLength
-        ToolStripTextBox1.Text = ""
-        ToolStripTextBox2.Text = ""
-        Dim Markdowncontent As String = RichTextBoxmarkdown.Text
-        Dim markdownHTMLcontent As String = Markdown.ToHtml(Markdowncontent)
-        WebViewHTML.NavigateToString(markdownHTMLcontent)
-        WebBrowser1.DocumentText = markdownHTMLcontent
 
-        Dim rtb As RichTextBox = DirectCast(sender, RichTextBox)
-        UpdateLineInfo(rtb)
-    End Sub
-
-    ' 更新label1以显示当前行和总行数
-    Private Sub UpdateLineInfo(rtb As RichTextBox)
-        ' 获取当前光标的位置
-        Dim cursorPosition As Integer = rtb.SelectionStart
-        ' 计算当前行
-        Dim currentLine As Integer = rtb.GetLineFromCharIndex(cursorPosition)
-        ' 计算总行数
-        Dim lineCount As Integer = rtb.Lines.Length
-        ' 更新label1的文本
-        ToolStripLabel2.Text = $"行数信息：当前在第{currentLine + 1}行 /总共 {lineCount}行"
-    End Sub
 
     Private Sub ToolStripButton1_Click(sender As Object, e As EventArgs) Handles ToolStripButton1.Click
-        RichTextBoxmarkdown.AppendText("**" + My.Application.Info.ProductName + "**")
+       Scintillamarkdown.AppendText("**" + My.Application.Info.ProductName + "**")
     End Sub
 
     Private Sub ToolStripButton2_Click(sender As Object, e As EventArgs) Handles ToolStripButton2.Click
-        RichTextBoxmarkdown.AppendText("*" + My.Application.Info.ProductName + "*")
+       Scintillamarkdown.AppendText("*" + My.Application.Info.ProductName + "*")
     End Sub
 
     Private Sub ToolStripButton3_Click(sender As Object, e As EventArgs) Handles ToolStripButton3.Click
-        RichTextBoxmarkdown.AppendText("[" + My.Application.Info.ProductName + "](https://github.com/yilihamujiang365/HTMLandMarkDown-Editor)")
+       Scintillamarkdown.AppendText("[" + My.Application.Info.ProductName + "](https://github.com/yilihamujiang365/HTMLandMarkDown-Editor)")
     End Sub
 
 
     Private Sub ToolStripButton5_Click(sender As Object, e As EventArgs) Handles ToolStripButton5.Click
 
-        RichTextBoxmarkdown.AppendText(">" & My.Application.Info.Title)
+       Scintillamarkdown.AppendText(">" & My.Application.Info.Title)
     End Sub
 
     Private Sub ToolStripButton4_Click(sender As Object, e As EventArgs) Handles ToolStripButton4.Click
 
-        RichTextBoxmarkdown.AppendText("| " + My.Application.Info.ProductName + " | 其他 |
+       Scintillamarkdown.AppendText("| " + My.Application.Info.ProductName + " | 其他 |
 | ------- | ------- |
 |       |         |
 ")
@@ -192,13 +225,13 @@ Public Class Form1
 
     Private Sub ToolStripButton6_Click(sender As Object, e As EventArgs) Handles ToolStripButton6.Click
 
-        RichTextBoxmarkdown.AppendText("![示例图片](http://example.com/example.jpg)")
+       Scintillamarkdown.AppendText("![示例图片](http://example.com/example.jpg)")
     End Sub
 
 
 
     Private Sub ToolStripButton7_Click(sender As Object, e As EventArgs) Handles ToolStripButton7.Click
-        RichTextBoxmarkdown.AppendText("``` 
+       Scintillamarkdown.AppendText("``` 
 这是代码片段
 Console.Writrline(""" + My.Application.Info.Title + """)
 ```")
@@ -208,7 +241,7 @@ Console.Writrline(""" + My.Application.Info.Title + """)
 
     Private Sub 退出XToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles 退出XToolStripMenuItem.Click
         ' 检查RichTextBox1和RichTextBox2是否为空
-        If String.IsNullOrWhiteSpace(RichTextBoxHTML.Text) AndAlso String.IsNullOrWhiteSpace(RichTextBoxmarkdown.Text) Then
+        If String.IsNullOrWhiteSpace(ScintillaHTMLL.Text) AndAlso String.IsNullOrWhiteSpace(Scintillamarkdown.Text) Then
             ' 如果两个RichTextBox都是空的，关闭窗体
             Me.Close()
         Else
@@ -229,14 +262,14 @@ Console.Writrline(""" + My.Application.Info.Title + """)
     Private Sub 修改HTML编辑器字体ToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles 修改HTML编辑器字体ToolStripMenuItem.Click
         If FontDialog1.ShowDialog() = DialogResult.OK Then
             ' 如果用户选择了字体，设置RichTextBox的字体
-            RichTextBoxHTML.Font = FontDialog1.Font
+            ScintillaHTMLL.Font = FontDialog1.Font
         End If
     End Sub
 
     Private Sub 修改Markdown编辑器字体ToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles 修改Markdown编辑器字体ToolStripMenuItem.Click
         If FontDialog1.ShowDialog() = DialogResult.OK Then
             ' 如果用户选择了字体，设置RichTextBox的字体
-            RichTextBoxmarkdown.Font = FontDialog1.Font
+           Scintillamarkdown.Font = FontDialog1.Font
         End If
     End Sub
 
@@ -247,12 +280,12 @@ Console.Writrline(""" + My.Application.Info.Title + """)
             ' 尝试以 UTF-8 编码读取文件内容
             Try
                 Using reader As New StreamReader(OpenFileDialog1.FileName, Encoding.UTF8)
-                    RichTextBoxHTML.Text = reader.ReadToEnd()
+                    ScintillaHTMLL.Text = reader.ReadToEnd()
                 End Using
             Catch ex As Exception
                 ' 如果 UTF-8 编码失败，尝试使用系统默认编码
                 Using reader As New StreamReader(OpenFileDialog1.FileName)
-                    RichTextBoxHTML.Text = reader.ReadToEnd()
+                    ScintillaHTMLL.Text = reader.ReadToEnd()
                 End Using
             End Try
         End If
@@ -264,12 +297,12 @@ Console.Writrline(""" + My.Application.Info.Title + """)
             ' 尝试以 UTF-8 编码读取文件内容
             Try
                 Using reader As New StreamReader(OpenFileDialog2.FileName, Encoding.UTF8)
-                    RichTextBoxmarkdown.Text = reader.ReadToEnd()
+                   Scintillamarkdown.Text = reader.ReadToEnd()
                 End Using
             Catch ex As Exception
                 ' 如果 UTF-8 编码失败，尝试使用系统默认编码
                 Using reader As New StreamReader(OpenFileDialog2.FileName)
-                    RichTextBoxmarkdown.Text = reader.ReadToEnd()
+                   Scintillamarkdown.Text = reader.ReadToEnd()
                 End Using
             End Try
         End If
@@ -301,10 +334,54 @@ Console.Writrline(""" + My.Application.Info.Title + """)
     End Sub
 
     Private Sub 新建HTML网页文件ToolStripMenuItem_Click(sender As Object, e As EventArgs)
-        RichTextBoxHTML.Text = ""
+        ScintillaHTMLL.Text = ""
     End Sub
 
     Private Sub 新建MarkDown文件ToolStripMenuItem_Click(sender As Object, e As EventArgs)
-        RichTextBoxmarkdown.Text = ""
+       Scintillamarkdown.Text = ""
+    End Sub
+
+    Private Sub ScintillaHTMLL_Click(sender As Object, e As EventArgs) Handles ScintillaHTMLL.Click
+
+    End Sub
+
+    Private Sub ScintillaHTMLL_TextChanged(sender As Object, e As EventArgs) Handles ScintillaHTMLL.TextChanged
+        ToolStripLabel1.Text = "字数为：" & ScintillaHTMLL.TextLength
+        ToolStripTextBox1.Text = ""
+        ToolStripTextBox2.Text = ""
+        Dim HTMLcontent As String = ScintillaHTMLL.Text
+        WebViewHTML.NavigateToString(HTMLcontent)
+        WebBrowser1.DocumentText = HTMLcontent
+    End Sub
+
+    Private Sub Scintillamarkdown_TextChanged(sender As Object, e As EventArgs) Handles Scintillamarkdown.TextChanged
+        ToolStripLabel1.Text = "字数为：" & Scintillamarkdown.TextLength
+        ToolStripTextBox1.Text = ""
+        ToolStripTextBox2.Text = ""
+        Dim Markdowncontent As String = Scintillamarkdown.Text
+        Dim markdownHTMLcontent As String = Markdown.ToHtml(Markdowncontent)
+        WebViewHTML.NavigateToString(markdownHTMLcontent)
+        WebBrowser1.DocumentText = markdownHTMLcontent
+
+    End Sub
+
+    Private Sub ToolStripButton17_Click(sender As Object, e As EventArgs) Handles ToolStripButton17.Click
+        If SplitContainer1.Orientation = Orientation.Horizontal Then
+            SplitContainer1.Orientation = Orientation.Vertical
+            ToolStripButton17.Text = "水平切换"
+        Else
+            SplitContainer1.Orientation = Orientation.Horizontal
+            ToolStripButton17.Text = "垂直切换"
+        End If
+    End Sub
+
+    Private Sub GithubToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles GithubToolStripMenuItem.Click
+        Dim GitHubadsress As String = "https://github.com/yilihamujiang365/537-Code-Factory"
+        Process.Start(GitHubadsress)
+    End Sub
+
+    Private Sub GiteeToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles GiteeToolStripMenuItem.Click
+        Dim Giteeadsress As String = "https://gitee.com/FTS-537Studio/537CodeFactory"
+        Process.Start(Giteeadsress)
     End Sub
 End Class

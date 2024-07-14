@@ -16,11 +16,15 @@
         Me.LabelVersion.Text = String.Format("版本 {0}", My.Application.Info.Version.ToString)
         Me.LabelCopyright.Text = My.Application.Info.Copyright
         Me.LabelCompanyName.Text = My.Application.Info.CompanyName
-        Me.TextBoxDescription.Text = My.Application.Info.Description
+
     End Sub
 
     Private Sub OKButton_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles OKButton.Click
         Me.Close()
     End Sub
 
+    Private Sub LinkLabel1_LinkClicked(sender As Object, e As LinkLabelLinkClickedEventArgs) Handles LinkLabel1.LinkClicked
+        Dim mywebadress As String = "https://yilihamujiang365.github.io/web/"
+        Process.Start(mywebadress)
+    End Sub
 End Class

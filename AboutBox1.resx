@@ -117,4 +117,10 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
+  <data name="TextBoxDescription.Text" xml:space="preserve">
+    <value>本程序依赖的Nuget包清单：
+1.Microsoft webview2 (https://learn.microsoft.com/zh-cn/microsoft-edge/webview2/)
+2.Markdig  (https://github.com/xoofx/markdig)
+3.ScintillaNET （https://github.com/jacobslusser/ScintillaNET）</value>
+  </data>
 </root>

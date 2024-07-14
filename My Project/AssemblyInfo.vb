@@ -9,10 +9,10 @@ Imports System.Runtime.InteropServices
 '查看程序集特性的值
 
 <Assembly: AssemblyTitle("537 Code Factory")>
-<Assembly: AssemblyDescription("")>
-<Assembly: AssemblyCompany("")>
+<Assembly: AssemblyDescription("537 Code Factory")>
+<Assembly: AssemblyCompany("537 studio")>
 <Assembly: AssemblyProduct("537 Code Factory")>
-<Assembly: AssemblyCopyright("Copyright ©  2024")>
+<Assembly: AssemblyCopyright("537 Studio © 2024-2024")>
 <Assembly: AssemblyTrademark("")>
 
 <Assembly: ComVisible(False)>
@@ -31,5 +31,5 @@ Imports System.Runtime.InteropServices
 '通过使用 "*"，如下所示:
 ' <Assembly: AssemblyVersion("1.0.*")>
 
-<Assembly: AssemblyVersion("1.0.0.0")>
-<Assembly: AssemblyFileVersion("1.0.0.0")>
+<Assembly: AssemblyVersion("3.0.0.0")>
+<Assembly: AssemblyFileVersion("3.0.0.0")>
