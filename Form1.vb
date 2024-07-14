@@ -172,7 +172,7 @@ Public Class Form1
     End Sub
 
     Private Sub ToolStripButton3_Click(sender As Object, e As EventArgs) Handles ToolStripButton3.Click
-       Scintillamarkdown.AppendText("[" + My.Application.Info.ProductName + "](https://github.com/yilihamujiang365/HTMLandMarkDown-Editor)")
+        Scintillamarkdown.AppendText("[" + My.Application.Info.ProductName + "](https://gitee.com/FTS-537Studio/537CodeFactory)")
     End Sub
 
 
@@ -202,7 +202,7 @@ Public Class Form1
 
     Private Sub ToolStripButton12_Click(sender As Object, e As EventArgs) Handles ToolStripButton12.Click
         If ToolStripTextBox1.Text = "" Then
-            MessageBox.Show("请在左边输入链接地址！")
+            MessageBox.Show("地址为空")
         Else
             WebViewHTML.CoreWebView2.Navigate("https://" & ToolStripTextBox1.Text)
         End If
@@ -310,7 +310,7 @@ Console.Writrline(""" + My.Application.Info.Title + """)
 
     Private Sub ToolStripButton16_Click(sender As Object, e As EventArgs) Handles ToolStripButton16.Click
         If ToolStripTextBox2.Text = "" Then
-            MessageBox.Show("请在左边输入链接地址！")
+            MessageBox.Show("地址为空")
         Else
             WebBrowser1.Navigate("https://" & ToolStripTextBox2.Text)
         End If
@@ -383,5 +383,9 @@ Console.Writrline(""" + My.Application.Info.Title + """)
     Private Sub GiteeToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles GiteeToolStripMenuItem.Click
         Dim Giteeadsress As String = "https://gitee.com/FTS-537Studio/537CodeFactory"
         Process.Start(Giteeadsress)
+    End Sub
+
+    Private Sub WebViewHTML_Click(sender As Object, e As EventArgs) Handles WebViewHTML.Click
+
     End Sub
 End Class

@@ -39,10 +39,14 @@ Partial Class Form1
         Me.帮助HToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.关于AToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.反馈或意见ToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.项目开源地址ToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.GithubToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.GiteeToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.TableLayoutPanel1 = New System.Windows.Forms.TableLayoutPanel()
         Me.ToolStrip1 = New System.Windows.Forms.ToolStrip()
         Me.ToolStripLabel1 = New System.Windows.Forms.ToolStripLabel()
         Me.ToolStripSeparator3 = New System.Windows.Forms.ToolStripSeparator()
+        Me.ToolStripButton17 = New System.Windows.Forms.ToolStripButton()
         Me.SplitContainer1 = New System.Windows.Forms.SplitContainer()
         Me.TabControl1 = New System.Windows.Forms.TabControl()
         Me.TabPage1 = New System.Windows.Forms.TabPage()
@@ -59,6 +63,7 @@ Partial Class Form1
         Me.ToolStripButton5 = New System.Windows.Forms.ToolStripButton()
         Me.ToolStripButton6 = New System.Windows.Forms.ToolStripButton()
         Me.ToolStripButton7 = New System.Windows.Forms.ToolStripButton()
+        Me.Scintillamarkdown = New ScintillaNET.Scintilla()
         Me.TabControl2 = New System.Windows.Forms.TabControl()
         Me.TabPage3 = New System.Windows.Forms.TabPage()
         Me.TableLayoutPanel4 = New System.Windows.Forms.TableLayoutPanel()
@@ -88,11 +93,6 @@ Partial Class Form1
         Me.OpenFileDialog2 = New System.Windows.Forms.OpenFileDialog()
         Me.SaveFileDialog1 = New System.Windows.Forms.SaveFileDialog()
         Me.SaveFileDialog2 = New System.Windows.Forms.SaveFileDialog()
-        Me.Scintillamarkdown = New ScintillaNET.Scintilla()
-        Me.ToolStripButton17 = New System.Windows.Forms.ToolStripButton()
-        Me.项目开源地址ToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
-        Me.GithubToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
-        Me.GiteeToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.MenuStrip1.SuspendLayout()
         Me.TableLayoutPanel1.SuspendLayout()
         Me.ToolStrip1.SuspendLayout()
@@ -216,14 +216,33 @@ Partial Class Form1
         '关于AToolStripMenuItem
         '
         Me.关于AToolStripMenuItem.Name = "关于AToolStripMenuItem"
-        Me.关于AToolStripMenuItem.Size = New System.Drawing.Size(136, 22)
+        Me.关于AToolStripMenuItem.Size = New System.Drawing.Size(148, 22)
         Me.关于AToolStripMenuItem.Text = "关于(&A)..."
         '
         '反馈或意见ToolStripMenuItem
         '
         Me.反馈或意见ToolStripMenuItem.Name = "反馈或意见ToolStripMenuItem"
-        Me.反馈或意见ToolStripMenuItem.Size = New System.Drawing.Size(136, 22)
+        Me.反馈或意见ToolStripMenuItem.Size = New System.Drawing.Size(148, 22)
         Me.反馈或意见ToolStripMenuItem.Text = "反馈或意见"
+        '
+        '项目开源地址ToolStripMenuItem
+        '
+        Me.项目开源地址ToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.GithubToolStripMenuItem, Me.GiteeToolStripMenuItem})
+        Me.项目开源地址ToolStripMenuItem.Name = "项目开源地址ToolStripMenuItem"
+        Me.项目开源地址ToolStripMenuItem.Size = New System.Drawing.Size(148, 22)
+        Me.项目开源地址ToolStripMenuItem.Text = "项目开源地址"
+        '
+        'GithubToolStripMenuItem
+        '
+        Me.GithubToolStripMenuItem.Name = "GithubToolStripMenuItem"
+        Me.GithubToolStripMenuItem.Size = New System.Drawing.Size(114, 22)
+        Me.GithubToolStripMenuItem.Text = "Github"
+        '
+        'GiteeToolStripMenuItem
+        '
+        Me.GiteeToolStripMenuItem.Name = "GiteeToolStripMenuItem"
+        Me.GiteeToolStripMenuItem.Size = New System.Drawing.Size(114, 22)
+        Me.GiteeToolStripMenuItem.Text = "Gitee"
         '
         'TableLayoutPanel1
         '
@@ -258,6 +277,15 @@ Partial Class Form1
         '
         Me.ToolStripSeparator3.Name = "ToolStripSeparator3"
         Me.ToolStripSeparator3.Size = New System.Drawing.Size(6, 25)
+        '
+        'ToolStripButton17
+        '
+        Me.ToolStripButton17.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text
+        Me.ToolStripButton17.Image = CType(resources.GetObject("ToolStripButton17.Image"), System.Drawing.Image)
+        Me.ToolStripButton17.ImageTransparentColor = System.Drawing.Color.Magenta
+        Me.ToolStripButton17.Name = "ToolStripButton17"
+        Me.ToolStripButton17.Size = New System.Drawing.Size(60, 22)
+        Me.ToolStripButton17.Text = "水平切换"
         '
         'SplitContainer1
         '
@@ -294,7 +322,7 @@ Partial Class Form1
         Me.TabPage1.Location = New System.Drawing.Point(4, 22)
         Me.TabPage1.Name = "TabPage1"
         Me.TabPage1.Padding = New System.Windows.Forms.Padding(3)
-        Me.TabPage1.Size = New System.Drawing.Size(431, 539)
+        Me.TabPage1.Size = New System.Drawing.Size(395, 539)
         Me.TabPage1.TabIndex = 0
         Me.TabPage1.Text = "HTML网页编辑器"
         Me.TabPage1.UseVisualStyleBackColor = True
@@ -311,14 +339,14 @@ Partial Class Form1
         Me.TableLayoutPanel2.RowCount = 2
         Me.TableLayoutPanel2.RowStyles.Add(New System.Windows.Forms.RowStyle())
         Me.TableLayoutPanel2.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100.0!))
-        Me.TableLayoutPanel2.Size = New System.Drawing.Size(425, 533)
+        Me.TableLayoutPanel2.Size = New System.Drawing.Size(389, 533)
         Me.TableLayoutPanel2.TabIndex = 0
         '
         'ToolStrip2
         '
         Me.ToolStrip2.Location = New System.Drawing.Point(0, 0)
         Me.ToolStrip2.Name = "ToolStrip2"
-        Me.ToolStrip2.Size = New System.Drawing.Size(425, 25)
+        Me.ToolStrip2.Size = New System.Drawing.Size(389, 25)
         Me.ToolStrip2.TabIndex = 0
         Me.ToolStrip2.Text = "ToolStrip2"
         '
@@ -328,7 +356,7 @@ Partial Class Form1
         Me.ScintillaHTMLL.Lexer = ScintillaNET.Lexer.Html
         Me.ScintillaHTMLL.Location = New System.Drawing.Point(3, 28)
         Me.ScintillaHTMLL.Name = "ScintillaHTMLL"
-        Me.ScintillaHTMLL.Size = New System.Drawing.Size(419, 502)
+        Me.ScintillaHTMLL.Size = New System.Drawing.Size(383, 502)
         Me.ScintillaHTMLL.TabIndex = 1
         '
         'TabPage2
@@ -439,6 +467,16 @@ Partial Class Form1
         Me.ToolStripButton7.Text = "</>"
         Me.ToolStripButton7.ToolTipText = "插入代码"
         '
+        'Scintillamarkdown
+        '
+        Me.Scintillamarkdown.AnnotationVisible = ScintillaNET.Annotation.Boxed
+        Me.Scintillamarkdown.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.Scintillamarkdown.Lexer = ScintillaNET.Lexer.Markdown
+        Me.Scintillamarkdown.Location = New System.Drawing.Point(3, 32)
+        Me.Scintillamarkdown.Name = "Scintillamarkdown"
+        Me.Scintillamarkdown.Size = New System.Drawing.Size(383, 498)
+        Me.Scintillamarkdown.TabIndex = 1
+        '
         'TabControl2
         '
         Me.TabControl2.Controls.Add(Me.TabPage3)
@@ -479,7 +517,7 @@ Partial Class Form1
         'ToolStrip4
         '
         Me.ToolStrip4.Font = New System.Drawing.Font("Microsoft YaHei UI", 12.0!, System.Drawing.FontStyle.Bold)
-        Me.ToolStrip4.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.ToolStripButton8, Me.ToolStripButton9, Me.ToolStripButton10, Me.ToolStripSeparator4, Me.ToolStripButton11, Me.ToolStripSeparator5, Me.ToolStripTextBox1, Me.ToolStripButton12})
+        Me.ToolStrip4.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.ToolStripButton8, Me.ToolStripButton10, Me.ToolStripButton9, Me.ToolStripSeparator4, Me.ToolStripButton11, Me.ToolStripSeparator5, Me.ToolStripTextBox1, Me.ToolStripButton12})
         Me.ToolStrip4.Location = New System.Drawing.Point(0, 0)
         Me.ToolStrip4.Name = "ToolStrip4"
         Me.ToolStrip4.Size = New System.Drawing.Size(513, 33)
@@ -528,7 +566,7 @@ Partial Class Form1
         Me.ToolStripButton11.Image = CType(resources.GetObject("ToolStripButton11.Image"), System.Drawing.Image)
         Me.ToolStripButton11.ImageTransparentColor = System.Drawing.Color.Magenta
         Me.ToolStripButton11.Name = "ToolStripButton11"
-        Me.ToolStripButton11.Size = New System.Drawing.Size(66, 30)
+        Me.ToolStripButton11.Size = New System.Drawing.Size(67, 30)
         Me.ToolStripButton11.Text = "🌐</>"
         '
         'ToolStripSeparator5
@@ -570,7 +608,7 @@ Partial Class Form1
         Me.TabPage4.Location = New System.Drawing.Point(4, 22)
         Me.TabPage4.Name = "TabPage4"
         Me.TabPage4.Padding = New System.Windows.Forms.Padding(3)
-        Me.TabPage4.Size = New System.Drawing.Size(565, 539)
+        Me.TabPage4.Size = New System.Drawing.Size(519, 539)
         Me.TabPage4.TabIndex = 1
         Me.TabPage4.Text = "IE （Internet Explorer）"
         Me.TabPage4.UseVisualStyleBackColor = True
@@ -587,16 +625,16 @@ Partial Class Form1
         Me.TableLayoutPanel5.RowCount = 2
         Me.TableLayoutPanel5.RowStyles.Add(New System.Windows.Forms.RowStyle())
         Me.TableLayoutPanel5.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100.0!))
-        Me.TableLayoutPanel5.Size = New System.Drawing.Size(559, 533)
+        Me.TableLayoutPanel5.Size = New System.Drawing.Size(513, 533)
         Me.TableLayoutPanel5.TabIndex = 1
         '
         'ToolStrip5
         '
         Me.ToolStrip5.Font = New System.Drawing.Font("Microsoft YaHei UI", 9.0!, System.Drawing.FontStyle.Bold)
-        Me.ToolStrip5.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.ToolStripButton13, Me.ToolStripButton14, Me.ToolStripButton15, Me.ToolStripSeparator6, Me.ToolStripTextBox2, Me.ToolStripButton16})
+        Me.ToolStrip5.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.ToolStripButton13, Me.ToolStripButton15, Me.ToolStripButton14, Me.ToolStripSeparator6, Me.ToolStripTextBox2, Me.ToolStripButton16})
         Me.ToolStrip5.Location = New System.Drawing.Point(0, 0)
         Me.ToolStrip5.Name = "ToolStrip5"
-        Me.ToolStrip5.Size = New System.Drawing.Size(559, 33)
+        Me.ToolStrip5.Size = New System.Drawing.Size(513, 33)
         Me.ToolStrip5.TabIndex = 0
         Me.ToolStrip5.Text = "ToolStrip5"
         '
@@ -657,7 +695,7 @@ Partial Class Form1
         Me.WebBrowser1.Location = New System.Drawing.Point(3, 36)
         Me.WebBrowser1.MinimumSize = New System.Drawing.Size(20, 20)
         Me.WebBrowser1.Name = "WebBrowser1"
-        Me.WebBrowser1.Size = New System.Drawing.Size(553, 494)
+        Me.WebBrowser1.Size = New System.Drawing.Size(507, 494)
         Me.WebBrowser1.TabIndex = 1
         '
         'OpenFileDialog1
@@ -667,44 +705,6 @@ Partial Class Form1
         'OpenFileDialog2
         '
         Me.OpenFileDialog2.FileName = "OpenFileDialog2"
-        '
-        'Scintillamarkdown
-        '
-        Me.Scintillamarkdown.AnnotationVisible = ScintillaNET.Annotation.Boxed
-        Me.Scintillamarkdown.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.Scintillamarkdown.Lexer = ScintillaNET.Lexer.Markdown
-        Me.Scintillamarkdown.Location = New System.Drawing.Point(3, 32)
-        Me.Scintillamarkdown.Name = "Scintillamarkdown"
-        Me.Scintillamarkdown.Size = New System.Drawing.Size(383, 498)
-        Me.Scintillamarkdown.TabIndex = 1
-        '
-        'ToolStripButton17
-        '
-        Me.ToolStripButton17.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text
-        Me.ToolStripButton17.Image = CType(resources.GetObject("ToolStripButton17.Image"), System.Drawing.Image)
-        Me.ToolStripButton17.ImageTransparentColor = System.Drawing.Color.Magenta
-        Me.ToolStripButton17.Name = "ToolStripButton17"
-        Me.ToolStripButton17.Size = New System.Drawing.Size(60, 22)
-        Me.ToolStripButton17.Text = "水平切换"
-        '
-        '项目开源地址ToolStripMenuItem
-        '
-        Me.项目开源地址ToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.GithubToolStripMenuItem, Me.GiteeToolStripMenuItem})
-        Me.项目开源地址ToolStripMenuItem.Name = "项目开源地址ToolStripMenuItem"
-        Me.项目开源地址ToolStripMenuItem.Size = New System.Drawing.Size(180, 22)
-        Me.项目开源地址ToolStripMenuItem.Text = "项目开源地址"
-        '
-        'GithubToolStripMenuItem
-        '
-        Me.GithubToolStripMenuItem.Name = "GithubToolStripMenuItem"
-        Me.GithubToolStripMenuItem.Size = New System.Drawing.Size(180, 22)
-        Me.GithubToolStripMenuItem.Text = "Github"
-        '
-        'GiteeToolStripMenuItem
-        '
-        Me.GiteeToolStripMenuItem.Name = "GiteeToolStripMenuItem"
-        Me.GiteeToolStripMenuItem.Size = New System.Drawing.Size(180, 22)
-        Me.GiteeToolStripMenuItem.Text = "Gitee"
         '
         'Form1
         '
