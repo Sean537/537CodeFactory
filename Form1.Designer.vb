@@ -69,8 +69,8 @@ Partial Class Form1
         Me.TableLayoutPanel4 = New System.Windows.Forms.TableLayoutPanel()
         Me.ToolStrip4 = New System.Windows.Forms.ToolStrip()
         Me.ToolStripButton8 = New System.Windows.Forms.ToolStripButton()
-        Me.ToolStripButton9 = New System.Windows.Forms.ToolStripButton()
         Me.ToolStripButton10 = New System.Windows.Forms.ToolStripButton()
+        Me.ToolStripButton9 = New System.Windows.Forms.ToolStripButton()
         Me.ToolStripSeparator4 = New System.Windows.Forms.ToolStripSeparator()
         Me.ToolStripButton11 = New System.Windows.Forms.ToolStripButton()
         Me.ToolStripSeparator5 = New System.Windows.Forms.ToolStripSeparator()
@@ -81,8 +81,8 @@ Partial Class Form1
         Me.TableLayoutPanel5 = New System.Windows.Forms.TableLayoutPanel()
         Me.ToolStrip5 = New System.Windows.Forms.ToolStrip()
         Me.ToolStripButton13 = New System.Windows.Forms.ToolStripButton()
-        Me.ToolStripButton14 = New System.Windows.Forms.ToolStripButton()
         Me.ToolStripButton15 = New System.Windows.Forms.ToolStripButton()
+        Me.ToolStripButton14 = New System.Windows.Forms.ToolStripButton()
         Me.ToolStripSeparator6 = New System.Windows.Forms.ToolStripSeparator()
         Me.ToolStripTextBox2 = New System.Windows.Forms.ToolStripTextBox()
         Me.ToolStripButton16 = New System.Windows.Forms.ToolStripButton()
@@ -191,19 +191,19 @@ Partial Class Form1
         '
         Me.ToolStripMenuItem1.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.修改HTML编辑器字体ToolStripMenuItem, Me.修改Markdown编辑器字体ToolStripMenuItem})
         Me.ToolStripMenuItem1.Name = "ToolStripMenuItem1"
-        Me.ToolStripMenuItem1.Size = New System.Drawing.Size(68, 21)
+        Me.ToolStripMenuItem1.Size = New System.Drawing.Size(62, 21)
         Me.ToolStripMenuItem1.Text = "字体(&O)"
         '
         '修改HTML编辑器字体ToolStripMenuItem
         '
-        Me.修改HTML编辑器字体ToolStripMenuItem.Name = "HTML编辑器ToolStripMenuItem"
-        Me.修改HTML编辑器字体ToolStripMenuItem.Size = New System.Drawing.Size(223, 22)
+        Me.修改HTML编辑器字体ToolStripMenuItem.Name = "修改HTML编辑器字体ToolStripMenuItem"
+        Me.修改HTML编辑器字体ToolStripMenuItem.Size = New System.Drawing.Size(195, 22)
         Me.修改HTML编辑器字体ToolStripMenuItem.Text = "HTML编辑器(&H)"
         '
         '修改Markdown编辑器字体ToolStripMenuItem
         '
-        Me.修改Markdown编辑器字体ToolStripMenuItem.Name = "Markdown编辑器ToolStripMenuItem"
-        Me.修改Markdown编辑器字体ToolStripMenuItem.Size = New System.Drawing.Size(223, 22)
+        Me.修改Markdown编辑器字体ToolStripMenuItem.Name = "修改Markdown编辑器字体ToolStripMenuItem"
+        Me.修改Markdown编辑器字体ToolStripMenuItem.Size = New System.Drawing.Size(195, 22)
         Me.修改Markdown编辑器字体ToolStripMenuItem.Text = "Markdown编辑器(&M)"
         '
         '帮助HToolStripMenuItem
@@ -534,16 +534,6 @@ Partial Class Form1
         Me.ToolStripButton8.Size = New System.Drawing.Size(35, 30)
         Me.ToolStripButton8.Text = "←"
         '
-        'ToolStripButton9
-        '
-        Me.ToolStripButton9.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text
-        Me.ToolStripButton9.Font = New System.Drawing.Font("Microsoft YaHei UI", 14.0!, System.Drawing.FontStyle.Bold)
-        Me.ToolStripButton9.Image = CType(resources.GetObject("ToolStripButton9.Image"), System.Drawing.Image)
-        Me.ToolStripButton9.ImageTransparentColor = System.Drawing.Color.Magenta
-        Me.ToolStripButton9.Name = "ToolStripButton9"
-        Me.ToolStripButton9.Size = New System.Drawing.Size(33, 30)
-        Me.ToolStripButton9.Text = "↻"
-        '
         'ToolStripButton10
         '
         Me.ToolStripButton10.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text
@@ -553,6 +543,16 @@ Partial Class Form1
         Me.ToolStripButton10.Name = "ToolStripButton10"
         Me.ToolStripButton10.Size = New System.Drawing.Size(35, 30)
         Me.ToolStripButton10.Text = "→"
+        '
+        'ToolStripButton9
+        '
+        Me.ToolStripButton9.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text
+        Me.ToolStripButton9.Font = New System.Drawing.Font("Microsoft YaHei UI", 14.0!, System.Drawing.FontStyle.Bold)
+        Me.ToolStripButton9.Image = CType(resources.GetObject("ToolStripButton9.Image"), System.Drawing.Image)
+        Me.ToolStripButton9.ImageTransparentColor = System.Drawing.Color.Magenta
+        Me.ToolStripButton9.Name = "ToolStripButton9"
+        Me.ToolStripButton9.Size = New System.Drawing.Size(33, 30)
+        Me.ToolStripButton9.Text = "↻"
         '
         'ToolStripSeparator4
         '
@@ -648,16 +648,6 @@ Partial Class Form1
         Me.ToolStripButton13.Size = New System.Drawing.Size(35, 30)
         Me.ToolStripButton13.Text = "←"
         '
-        'ToolStripButton14
-        '
-        Me.ToolStripButton14.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text
-        Me.ToolStripButton14.Font = New System.Drawing.Font("Microsoft YaHei UI", 14.0!, System.Drawing.FontStyle.Bold)
-        Me.ToolStripButton14.Image = CType(resources.GetObject("ToolStripButton14.Image"), System.Drawing.Image)
-        Me.ToolStripButton14.ImageTransparentColor = System.Drawing.Color.Magenta
-        Me.ToolStripButton14.Name = "ToolStripButton14"
-        Me.ToolStripButton14.Size = New System.Drawing.Size(33, 30)
-        Me.ToolStripButton14.Text = "↻"
-        '
         'ToolStripButton15
         '
         Me.ToolStripButton15.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text
@@ -667,6 +657,16 @@ Partial Class Form1
         Me.ToolStripButton15.Name = "ToolStripButton15"
         Me.ToolStripButton15.Size = New System.Drawing.Size(35, 30)
         Me.ToolStripButton15.Text = "→"
+        '
+        'ToolStripButton14
+        '
+        Me.ToolStripButton14.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text
+        Me.ToolStripButton14.Font = New System.Drawing.Font("Microsoft YaHei UI", 14.0!, System.Drawing.FontStyle.Bold)
+        Me.ToolStripButton14.Image = CType(resources.GetObject("ToolStripButton14.Image"), System.Drawing.Image)
+        Me.ToolStripButton14.ImageTransparentColor = System.Drawing.Color.Magenta
+        Me.ToolStripButton14.Name = "ToolStripButton14"
+        Me.ToolStripButton14.Size = New System.Drawing.Size(33, 30)
+        Me.ToolStripButton14.Text = "↻"
         '
         'ToolStripSeparator6
         '
@@ -718,6 +718,7 @@ Partial Class Form1
         Me.MinimumSize = New System.Drawing.Size(700, 400)
         Me.Name = "Form1"
         Me.Text = "Form1"
+        AddHandler Load, AddressOf Me.Form1_Load_1
         Me.MenuStrip1.ResumeLayout(False)
         Me.MenuStrip1.PerformLayout()
         Me.TableLayoutPanel1.ResumeLayout(False)

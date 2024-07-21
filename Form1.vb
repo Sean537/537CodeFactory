@@ -14,7 +14,7 @@ Public Class Form1
         SaveFileDialog1.Filter = "HTML文件(*.html)|*.html"
         OpenFileDialog2.Filter = "MarkDown文件(*.md)|*.md"
         SaveFileDialog2.Filter = "MarkDown文件(*.md)|*.md"
-        Me.Text = My.Application.Info.Title + String.Format("版本 V {0}", My.Application.Info.Version.ToString)
+        Me.Text = My.Application.Info.Title
 
 
         ConfigureScintillaHTML()
@@ -386,6 +386,10 @@ Console.Writrline(""" + My.Application.Info.Title + """)
     End Sub
 
     Private Sub WebViewHTML_Click(sender As Object, e As EventArgs) Handles WebViewHTML.Click
+
+    End Sub
+
+    Private Sub Form1_Load_1()
 
     End Sub
 End Class
