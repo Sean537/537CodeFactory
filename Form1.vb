@@ -1,395 +1,171 @@
 ﻿Imports System.IO
-Imports System.Text
-Imports Markdig
-Imports ScintillaNET
-
-
+Imports Microsoft.Web.WebView2.Core
+Imports System.Reflection
 Public Class Form1
     Private Async Sub Form1_Load(sender As Object, e As EventArgs) Handles MyBase.Load
-        ToolStrip2.Visible = False
+        Await WebViewNews.EnsureCoreWebView2Async(Nothing) '预加载显示新闻的webview
 
+        WebViewNews.CoreWebView2.Settings.AreDefaultContextMenusEnabled = False  '禁用webviewnews的右键 菜单
+        WebViewNews.CoreWebView2.Settings.IsScriptEnabled = True '启用webviewnews的js脚本
 
-        Await WebViewHTML.EnsureCoreWebView2Async(Nothing)
-        OpenFileDialog1.Filter = "HTML文件(*.html)|*.html"
-        SaveFileDialog1.Filter = "HTML文件(*.html)|*.html"
-        OpenFileDialog2.Filter = "MarkDown文件(*.md)|*.md"
-        SaveFileDialog2.Filter = "MarkDown文件(*.md)|*.md"
-        Me.Text = My.Application.Info.Title
+        '下面是显示新闻的webview的内容事件
+        Me.Text = My.Application.Info.ProductName + " " + String.Format("版本 {0}", My.Application.Info.Version.ToString)
+        Dim news As String = “<h1>欢迎使用" + My.Application.Info.ProductName + "<h1>
+           <h2>版本号：” + My.Application.Info.Version.ToString + “</h2>
+           <h2>此页面为 ” + My.Application.Info.ProductName + “ 首页测试界面</h2>
+           <h4>开发者：
+                <li><a href=""mailto:yilihamujiang365@outlook.com"">yilihamujiang365@outlook.com</a></li>
+                <li><a href=""mailto:wushaoquan666@outlook.com"">wushaoquan666@outlook.com</a></li>
+            </h4>"
+        WebViewNews.NavigateToString(news)
 
+        '按钮标签图标赋值
+        Button1.Image = 打开OToolStripMenuItem.Image
+        Button3.Image = XinjianToolStripMenuItem.Image
+        Button1.ImageAlign = ContentAlignment.MiddleLeft
+        Button3.ImageAlign = ContentAlignment.MiddleLeft
+        Button1.Text = 打开OToolStripMenuItem.Text
+        Button2.Text = 退出XToolStripMenuItem.Text
+        Button3.Text = XinjianToolStripMenuItem.Text
 
-        ConfigureScintillaHTML()
-        ConfigureScintillamarkdown()
-    End Sub
-    Private Sub ConfigureScintillaHTML()
-
-        ' 定义 HTML 标签样式
-        ScintillaHTMLL.Styles(ScintillaNET.Style.Html.Tag).ForeColor = Color.Blue
-        ScintillaHTMLL.Styles(ScintillaNET.Style.Html.Tag).BackColor = Color.White
-
-        ' 定义 HTML 属性样式
-        ScintillaHTMLL.Styles(ScintillaNET.Style.Html.Attribute).ForeColor = Color.Green
-        ScintillaHTMLL.Styles(ScintillaNET.Style.Html.Attribute).BackColor = Color.White
-
-        ' 定义 HTML 字符串样式
-        ScintillaHTMLL.Styles(ScintillaNET.Style.Html.DoubleString).ForeColor = Color.Gray
-        ScintillaHTMLL.Styles(ScintillaNET.Style.Html.DoubleString).BackColor = Color.White
-
-        ' 定义 HTML 注释样式
-        ScintillaHTMLL.Styles(ScintillaNET.Style.Html.Comment).ForeColor = Color.LightGray
-        ScintillaHTMLL.Styles(ScintillaNET.Style.Html.Comment).BackColor = Color.White
-
-        '行号
-        ScintillaHTMLL.Margins(0).Type = MarginType.Number
-        ScintillaHTMLL.Margins(0).Width = 40
-    End Sub
-    Private Sub ConfigureScintillamarkdown()
-
-
-        ' 定义 Markdown 标签样式
-        Scintillamarkdown.Styles(Style.Markdown.Header1).ForeColor = Color.Blue
-        Scintillamarkdown.Styles(Style.Markdown.Header1).BackColor = Color.White
-
-        Scintillamarkdown.Styles(Style.Markdown.Header2).ForeColor = Color.Blue
-        Scintillamarkdown.Styles(Style.Markdown.Header2).BackColor = Color.White
-
-        Scintillamarkdown.Styles(Style.Markdown.Header3).ForeColor = Color.Blue
-        Scintillamarkdown.Styles(Style.Markdown.Header3).BackColor = Color.White
-
-        Scintillamarkdown.Styles(Style.Markdown.Header4).ForeColor = Color.Blue
-        Scintillamarkdown.Styles(Style.Markdown.Header4).BackColor = Color.White
-
-        Scintillamarkdown.Styles(Style.Markdown.Header5).ForeColor = Color.Blue
-        Scintillamarkdown.Styles(Style.Markdown.Header5).BackColor = Color.White
-
-        Scintillamarkdown.Styles(Style.Markdown.Header6).ForeColor = Color.Blue
-        Scintillamarkdown.Styles(Style.Markdown.Header6).BackColor = Color.White
-        ' 定义 Markdown 链接样式
-        Scintillamarkdown.Styles(Style.Markdown.Link).ForeColor = Color.Blue
-        Scintillamarkdown.Styles(Style.Markdown.Link).Underline = True
-
-        ' 定义 Markdown 代码样式
-        Scintillamarkdown.Styles(Style.Markdown.Code).ForeColor = Color.Green
-        Scintillamarkdown.Styles(Style.Markdown.Code).BackColor = Color.White
-
-        ' 设置行号
-        Scintillamarkdown.Margins(0).Type = MarginType.Number
-        Scintillamarkdown.Margins(0).Width = 40
-
-        ' 其他相关设置...
-    End Sub
-
-
-
-
-
-
-
-
-
-
-
-
-    Private closeConfirmed As Boolean = False
-
-    Private Sub Form1_FormClosing(sender As Object, e As FormClosingEventArgs) Handles MyBase.FormClosing
-        ' 如果用户已经确认关闭，则允许关闭
-        If closeConfirmed Then
-            Return
-        End If
-
-        ' 检查RichTextBox1和RichTextBox2是否为空
-        If String.IsNullOrWhiteSpace(ScintillaHTMLL.Text) AndAlso String.IsNullOrWhiteSpace(Scintillamarkdown.Text) Then
-            ' 如果两个RichTextBox都是空的，允许关闭
-            e.Cancel = False
-        Else
-            ' 如果至少有一个RichTextBox不是空的，显示提醒信息
-            Dim result As DialogResult = MessageBox.Show("所有内容未清除，确定要关闭吗?", "确认关闭", MessageBoxButtons.YesNo)
-            If result = DialogResult.Yes Then
-                ' 如果用户确认关闭，设置标志并再次尝试关闭窗口
-                closeConfirmed = True
-                Me.Close()
-            Else
-                ' 如果用户取消关闭，取消关闭事件
-                e.Cancel = True
-            End If
-        End If
-    End Sub
-
-
-
-
-
-
-
-
-
-    Private Sub 保存HTML文件ToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles 保存HTML文件ToolStripMenuItem.Click
-        ' 显示 SaveFileDialog
-        If SaveFileDialog1.ShowDialog() = DialogResult.OK Then
-            ' 将Scintillamarkdown 的内容转换为 HTML 并保存到文件
-            Saveashtml(ScintillaHTMLL.Text, SaveFileDialog1.FileName)
-        End If
-    End Sub
-
-    Private Sub Saveashtml(content As String, filepath As String)
-        '将文本内容转换为简单的 html 格式
-        Dim htmlcontent As String = "<html><body><pre>" & content.Replace(vbCrLf, "<br>") & "</pre></body></html>"
-
-        '将 html 内容写入到文件
-        System.IO.File.WriteAllText(filepath, htmlcontent)
-    End Sub
-
-
-
-
-
-
-
-    Private Sub 保存MarkDown文件ToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles 保存Markdown文件ToolStripMenuItem.Click
-        If SaveFileDialog2.ShowDialog() = DialogResult.OK Then
-            ' 保存Scintillamarkdown2 的内容为 Markdown 文件
-            System.IO.File.WriteAllText(SaveFileDialog2.FileName,Scintillamarkdown.Text)
-        End If
-    End Sub
-
-
-
-
-
-    Private Sub Scintillamarkdownmarkdown_TextChanged_1(sender As Object, e As EventArgs)
-
+        Button3.Image = ResizeImage(Button3.Image, Button1.Image.Size)
 
     End Sub
+    Private Function ResizeImage(image As Image, newSize As Size) As Image
+        Dim newImage As New Bitmap(newSize.Width, newSize.Height)
+        Using graphics As Graphics = Graphics.FromImage(newImage)
+            graphics.DrawImage(image, 0, 0, newSize.Width, newSize.Height)
+        End Using
+        Return newImage
+    End Function
 
 
-
-    Private Sub ToolStripButton1_Click(sender As Object, e As EventArgs) Handles ToolStripButton1.Click
-       Scintillamarkdown.AppendText("**" + My.Application.Info.ProductName + "**")
+    Private Sub Button1_Click(sender As Object, e As EventArgs) Handles Button1.Click
+        OpenProject()
+        '打开文件事件
+    End Sub
+    Private Sub 打开OToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles 打开OToolStripMenuItem.Click
+        OpenProject()
+        '打开文件事件
     End Sub
 
-    Private Sub ToolStripButton2_Click(sender As Object, e As EventArgs) Handles ToolStripButton2.Click
-       Scintillamarkdown.AppendText("*" + My.Application.Info.ProductName + "*")
-    End Sub
+    '打开文件事件
+    Private Sub OpenProject()
+        '选择文件的时候把文件路径保存到txt文件里面
+        Dim openFileDialog As New OpenFileDialog()
+        openFileDialog.Filter = "HTML Files (*.html;*.htm)|*.html;*.htm"
+        If openFileDialog.ShowDialog() = DialogResult.OK Then
 
-    Private Sub ToolStripButton3_Click(sender As Object, e As EventArgs) Handles ToolStripButton3.Click
-        Scintillamarkdown.AppendText("[" + My.Application.Info.ProductName + "](https://gitee.com/FTS-537Studio/537CodeFactory)")
-    End Sub
+            Dim filePath As String = openFileDialog.FileName
+            Dim fileContent As String = File.ReadAllText(filePath)
 
+            ' 将 filePath 的内容保存到 filepatchfile.txt
+            File.WriteAllText("filepatchfile.txt", filePath)
 
-    Private Sub ToolStripButton5_Click(sender As Object, e As EventArgs) Handles ToolStripButton5.Click
+            '移除欢迎页
+            TabControl1.TabPages.Clear()
 
-       Scintillamarkdown.AppendText(">" & My.Application.Info.Title)
-    End Sub
+            ' 添加新选项卡
+            Dim newTabPage As New TabPage(filePath)
+            TabControl1.TabPages.Add(newTabPage)
+            Dim Control1 As New HTMLControl
+            newTabPage.Controls.Add(Control1)
+            Control1.Dock = DockStyle.Fill
 
-    Private Sub ToolStripButton4_Click(sender As Object, e As EventArgs) Handles ToolStripButton4.Click
-
-       Scintillamarkdown.AppendText("| " + My.Application.Info.ProductName + " | 其他 |
-| ------- | ------- |
-|       |         |
-")
-    End Sub
-
-    Private Sub ToolStripButton10_Click(sender As Object, e As EventArgs) Handles ToolStripButton10.Click
-
-        WebViewHTML.GoForward()
-
-    End Sub
-
-    Private Sub ToolStripButton11_Click(sender As Object, e As EventArgs) Handles ToolStripButton11.Click
-
-        WebViewHTML.CoreWebView2.OpenDevToolsWindow()
-    End Sub
-
-    Private Sub ToolStripButton12_Click(sender As Object, e As EventArgs) Handles ToolStripButton12.Click
-        If ToolStripTextBox1.Text = "" Then
-            MessageBox.Show("地址为空")
-        Else
-            WebViewHTML.CoreWebView2.Navigate("https://" & ToolStripTextBox1.Text)
-        End If
-
-
-    End Sub
-
-    Private Sub ToolStripButton13_Click(sender As Object, e As EventArgs) Handles ToolStripButton13.Click
-        WebBrowser1.GoBack()
-
-    End Sub
-
-
-
-
-
-
-
-
-
-    Private Sub ToolStripButton6_Click(sender As Object, e As EventArgs) Handles ToolStripButton6.Click
-
-       Scintillamarkdown.AppendText("![示例图片](http://example.com/example.jpg)")
-    End Sub
-
-
-
-    Private Sub ToolStripButton7_Click(sender As Object, e As EventArgs) Handles ToolStripButton7.Click
-       Scintillamarkdown.AppendText("``` 
-这是代码片段
-Console.Writrline(""" + My.Application.Info.Title + """)
-```")
-    End Sub
-
-
-
-    Private Sub 退出XToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles 退出XToolStripMenuItem.Click
-        ' 检查RichTextBox1和RichTextBox2是否为空
-        If String.IsNullOrWhiteSpace(ScintillaHTMLL.Text) AndAlso String.IsNullOrWhiteSpace(Scintillamarkdown.Text) Then
-            ' 如果两个RichTextBox都是空的，关闭窗体
-            Me.Close()
-        Else
-            ' 如果至少有一个RichTextBox不是空的，显示提醒信息
-            MessageBox.Show("请确认所有内容已清除后再关闭。")
+            '打开后展示工作
+            Control1.htmlEditor.Text = fileContent
+            Control1.htmlWebView.Source = New Uri(filePath)
+            'Control1.HTMLWebBrowser.Url = New Uri(filePath)
         End If
     End Sub
 
     Private Sub 关于AToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles 关于AToolStripMenuItem.Click
-        AboutBox1.Show()
+        Dim webView2Version As String = CoreWebView2Environment.GetAvailableBrowserVersionString()
+        Dim fctbAssembly As Assembly = Assembly.Load("FastColoredTextBox") '假设程序集名称是 FastColoredTextBox，如果不正确请调整
+        Dim version As Version = fctbAssembly.GetName().Version
+
+        MessageBox.Show("软件名称: " & My.Application.Info.ProductName & vbCrLf & "版本号： " & My.Application.Info.Version.ToString() + vbCrLf + "开发者：" + vbCrLf + "yilihamujiang365@outlook.com" + vbCrLf + "wushaoquan666@outlook.com" + vbCrLf + vbCrLf + "使用的NuGet程序包如下：" + vbCrLf + "Microsoft Edge WebView2 " + "(版本：" & webView2Version + ")" + vbCrLf + "微软公司协议" + vbCrLf + "FastColoredTextBoxNS (版本：" & version.ToString() + ")" + vbCrLf + "GNU 通用公共许可证（GPLv3）", "关于", MessageBoxButtons.OK, MessageBoxIcon.Information)
+
     End Sub
 
-    Private Sub 反馈或意见ToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles 反馈或意见ToolStripMenuItem.Click
-        Dim linkToOpen As String = "https://forms.office.com/r/ryf0EZnNS0"
-        System.Diagnostics.Process.Start(linkToOpen)
+    Private Sub Button2_Click(sender As Object, e As EventArgs) Handles Button2.Click
+        End
     End Sub
 
-    Private Sub 修改HTML编辑器字体ToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles 修改HTML编辑器字体ToolStripMenuItem.Click
-        If FontDialog1.ShowDialog() = DialogResult.OK Then
-            ' 如果用户选择了字体，设置RichTextBox的字体
-            ScintillaHTMLL.Font = FontDialog1.Font
-        End If
+    Private Sub 退出XToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles 退出XToolStripMenuItem.Click
+        End
     End Sub
 
-    Private Sub 修改Markdown编辑器字体ToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles 修改Markdown编辑器字体ToolStripMenuItem.Click
-        If FontDialog1.ShowDialog() = DialogResult.OK Then
-            ' 如果用户选择了字体，设置RichTextBox的字体
-           Scintillamarkdown.Font = FontDialog1.Font
-        End If
+    Private Sub ToolStripStatusLabel1_Click(sender As Object, e As EventArgs)
+        End
     End Sub
 
-
-    Private Sub 新建HTML网页文件ToolStripMenuItem1_Click(sender As Object, e As EventArgs) Handles 新建HTML网页文件ToolStripMenuItem1.Click
-        ' 显示 OpenFileDialog
-        If OpenFileDialog1.ShowDialog() = DialogResult.OK Then
-            ' 尝试以 UTF-8 编码读取文件内容
-            Try
-                Using reader As New StreamReader(OpenFileDialog1.FileName, Encoding.UTF8)
-                    ScintillaHTMLL.Text = reader.ReadToEnd()
-                End Using
-            Catch ex As Exception
-                ' 如果 UTF-8 编码失败，尝试使用系统默认编码
-                Using reader As New StreamReader(OpenFileDialog1.FileName)
-                    ScintillaHTMLL.Text = reader.ReadToEnd()
-                End Using
-            End Try
-        End If
+    Private Sub Button3_Click(sender As Object, e As EventArgs) Handles Button3.Click
+        Newproject()
     End Sub
-
-    Private Sub 新建MarkDown文件ToolStripMenuItem1_Click(sender As Object, e As EventArgs) Handles 新建MarkDown文件ToolStripMenuItem1.Click
-        ' 显示 OpenFileDialog
-        If OpenFileDialog2.ShowDialog() = DialogResult.OK Then
-            ' 尝试以 UTF-8 编码读取文件内容
-            Try
-                Using reader As New StreamReader(OpenFileDialog2.FileName, Encoding.UTF8)
-                   Scintillamarkdown.Text = reader.ReadToEnd()
-                End Using
-            Catch ex As Exception
-                ' 如果 UTF-8 编码失败，尝试使用系统默认编码
-                Using reader As New StreamReader(OpenFileDialog2.FileName)
-                   Scintillamarkdown.Text = reader.ReadToEnd()
-                End Using
-            End Try
-        End If
-    End Sub
-
-    Private Sub ToolStripButton16_Click(sender As Object, e As EventArgs) Handles ToolStripButton16.Click
-        If ToolStripTextBox2.Text = "" Then
-            MessageBox.Show("地址为空")
-        Else
-            WebBrowser1.Navigate("https://" & ToolStripTextBox2.Text)
+    Private Sub Newproject()
+        ' 获取项目名称
+        Dim projectName As String = InputBox("请输入项目名称：")
+        If String.IsNullOrEmpty(projectName) Then
+            MessageBox.Show("项目名称不能为空。")
+            Return
         End If
 
+        ' 显示文件夹选择对话框
+        Using fbd As New FolderBrowserDialog
+            If fbd.ShowDialog() = DialogResult.OK Then
+                Dim selectedPath As String = fbd.SelectedPath
+
+                ' 创建项目文件夹
+                Dim projectFolderPath As String = Path.Combine(selectedPath, projectName)
+                If Not Directory.Exists(projectFolderPath) Then
+                    Directory.CreateDirectory(projectFolderPath)
+                End If
+
+                ' 创建 index.html 文件
+                Dim htmlFilePath As String = Path.Combine(projectFolderPath, "index.html")
+                File.WriteAllText(htmlFilePath, "<h1>hello world</h1>")
+
+                ' 创建 CSS、JS 和 Img 文件夹
+                Dim cssFolderPath As String = Path.Combine(projectFolderPath, "CSS")
+                Dim jsFolderPath As String = Path.Combine(projectFolderPath, "JS")
+                Dim imgFolderPath As String = Path.Combine(projectFolderPath, "Img")
+                Directory.CreateDirectory(cssFolderPath)
+                Directory.CreateDirectory(jsFolderPath)
+                Directory.CreateDirectory(imgFolderPath)
+
+                ' 获取软件根目录
+                Dim appRootPath As String = AppDomain.CurrentDomain.BaseDirectory
+                ' 确定 filepatchfile.txt 的路径
+                Dim patchFilePath As String = Path.Combine(appRootPath, "filepatchfile.txt")
+                ' 将选择的路径加上 "\index.html" 后写入文件
+                Dim contentToWrite As String = projectFolderPath & "\index.html"
+
+                File.WriteAllText(patchFilePath, contentToWrite)
+
+                ' 移除欢迎页
+                TabControl1.TabPages.Clear()
+
+                ' 添加新选项卡
+                Dim newTabPage As New TabPage(htmlFilePath)
+                TabControl1.TabPages.Add(newTabPage)
+                Dim control1 As New HTMLControl
+                newTabPage.Controls.Add(control1)
+                control1.Dock = DockStyle.Fill
+
+                ' 显示 HTML 文件内容
+                Dim htmlContent As String = File.ReadAllText(htmlFilePath)
+                control1.htmlEditor.Text = htmlContent
+                control1.htmlWebView.Source = New Uri(htmlFilePath)
+            End If
+        End Using
     End Sub
 
-    Private Sub ToolStripButton14_Click(sender As Object, e As EventArgs) Handles ToolStripButton14.Click
-        WebBrowser1.Refresh()
+    Private Sub XinjianToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles XinjianToolStripMenuItem.Click
+        Newproject()
     End Sub
 
-    Private Sub ToolStripButton15_Click(sender As Object, e As EventArgs) Handles ToolStripButton15.Click
-        WebBrowser1.GoForward()
-    End Sub
-
-    Private Sub ToolStripButton9_Click(sender As Object, e As EventArgs) Handles ToolStripButton9.Click
-        WebViewHTML.Refresh()
-    End Sub
-
-    Private Sub ToolStripButton8_Click(sender As Object, e As EventArgs) Handles ToolStripButton8.Click
-        WebViewHTML.GoBack()
-    End Sub
-
-    Private Sub 新建HTML网页文件ToolStripMenuItem_Click(sender As Object, e As EventArgs)
-        ScintillaHTMLL.Text = ""
-    End Sub
-
-    Private Sub 新建MarkDown文件ToolStripMenuItem_Click(sender As Object, e As EventArgs)
-       Scintillamarkdown.Text = ""
-    End Sub
-
-    Private Sub ScintillaHTMLL_Click(sender As Object, e As EventArgs) Handles ScintillaHTMLL.Click
-
-    End Sub
-
-    Private Sub ScintillaHTMLL_TextChanged(sender As Object, e As EventArgs) Handles ScintillaHTMLL.TextChanged
-        ToolStripLabel1.Text = "字数为：" & ScintillaHTMLL.TextLength
-        ToolStripTextBox1.Text = ""
-        ToolStripTextBox2.Text = ""
-        Dim HTMLcontent As String = ScintillaHTMLL.Text
-        WebViewHTML.NavigateToString(HTMLcontent)
-        WebBrowser1.DocumentText = HTMLcontent
-    End Sub
-
-    Private Sub Scintillamarkdown_TextChanged(sender As Object, e As EventArgs) Handles Scintillamarkdown.TextChanged
-        ToolStripLabel1.Text = "字数为：" & Scintillamarkdown.TextLength
-        ToolStripTextBox1.Text = ""
-        ToolStripTextBox2.Text = ""
-        Dim Markdowncontent As String = Scintillamarkdown.Text
-        Dim markdownHTMLcontent As String = Markdown.ToHtml(Markdowncontent)
-        WebViewHTML.NavigateToString(markdownHTMLcontent)
-        WebBrowser1.DocumentText = markdownHTMLcontent
-
-    End Sub
-
-    Private Sub ToolStripButton17_Click(sender As Object, e As EventArgs) Handles ToolStripButton17.Click
-        If SplitContainer1.Orientation = Orientation.Horizontal Then
-            SplitContainer1.Orientation = Orientation.Vertical
-            ToolStripButton17.Text = "水平切换"
-        Else
-            SplitContainer1.Orientation = Orientation.Horizontal
-            ToolStripButton17.Text = "垂直切换"
-        End If
-    End Sub
-
-    Private Sub GithubToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles GithubToolStripMenuItem.Click
-        Dim GitHubadsress As String = "https://github.com/yilihamujiang365/537-Code-Factory"
-        Process.Start(GitHubadsress)
-    End Sub
-
-    Private Sub GiteeToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles GiteeToolStripMenuItem.Click
-        Dim Giteeadsress As String = "https://gitee.com/FTS-537Studio/537CodeFactory"
-        Process.Start(Giteeadsress)
-    End Sub
-
-    Private Sub WebViewHTML_Click(sender As Object, e As EventArgs) Handles WebViewHTML.Click
-
-    End Sub
-
-    Private Sub Form1_Load_1()
+    Private Sub PictureBox1_Click(sender As Object, e As EventArgs) Handles PictureBox1.Click
 
     End Sub
 End Class
