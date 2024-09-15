@@ -20,15 +20,15 @@ Public Class home
         WebViewNews.NavigateToString(news)
 
         '按钮标签图标赋值
-        Button1.Image = 打开OToolStripMenuItem.Image
-        Button3.Image = XinjianToolStripMenuItem.Image
-        Button1.ImageAlign = ContentAlignment.MiddleLeft
-        Button3.ImageAlign = ContentAlignment.MiddleLeft
-        Button1.Text = 打开OToolStripMenuItem.Text
-        Button2.Text = 退出XToolStripMenuItem.Text
-        Button3.Text = XinjianToolStripMenuItem.Text
+        Button_Open.Image = 打开OToolStripMenuItem.Image
+        Button_New.Image = XinjianToolStripMenuItem.Image
+        Button_Open.ImageAlign = ContentAlignment.MiddleLeft
+        Button_New.ImageAlign = ContentAlignment.MiddleLeft
+        Button_Open.Text = 打开OToolStripMenuItem.Text
+        Button_Exit.Text = 退出XToolStripMenuItem.Text
+        Button_New.Text = XinjianToolStripMenuItem.Text
 
-        Button3.Image = ResizeImage(Button3.Image, Button1.Image.Size)
+        Button_New.Image = ResizeImage(Button_New.Image, Button_Open.Image.Size)
 
     End Sub
     Private Function ResizeImage(image As Image, newSize As Size) As Image
@@ -40,7 +40,7 @@ Public Class home
     End Function
 
 
-    Private Sub Button1_Click(sender As Object, e As EventArgs) Handles Button1.Click
+    Private Sub Button1_Click(sender As Object, e As EventArgs) Handles Button_Open.Click
         OpenProject()
         '打开文件事件
     End Sub
@@ -88,7 +88,7 @@ Public Class home
 
     End Sub
 
-    Private Sub Button2_Click(sender As Object, e As EventArgs) Handles Button2.Click
+    Private Sub Button2_Click(sender As Object, e As EventArgs) Handles Button_Exit.Click
         End
     End Sub
 
@@ -100,7 +100,7 @@ Public Class home
         End
     End Sub
 
-    Private Sub Button3_Click(sender As Object, e As EventArgs) Handles Button3.Click
+    Private Sub Button3_Click(sender As Object, e As EventArgs) Handles Button_New.Click
         Newproject()
     End Sub
     Private Sub Newproject()

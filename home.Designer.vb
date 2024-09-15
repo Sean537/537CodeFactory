@@ -34,9 +34,9 @@ Partial Class home
         Me.TabPage1 = New System.Windows.Forms.TabPage()
         Me.PictureBox1 = New System.Windows.Forms.PictureBox()
         Me.GroupBox1 = New System.Windows.Forms.GroupBox()
-        Me.Button3 = New System.Windows.Forms.Button()
-        Me.Button2 = New System.Windows.Forms.Button()
-        Me.Button1 = New System.Windows.Forms.Button()
+        Me.Button_New = New System.Windows.Forms.Button()
+        Me.Button_Exit = New System.Windows.Forms.Button()
+        Me.Button_Open = New System.Windows.Forms.Button()
         Me.WebViewNews = New Microsoft.Web.WebView2.WinForms.WebView2()
         Me.FolderBrowserDialog1 = New System.Windows.Forms.FolderBrowserDialog()
         Me.MenuStrip1.SuspendLayout()
@@ -77,7 +77,7 @@ Partial Class home
         Me.打开OToolStripMenuItem.ImageTransparentColor = System.Drawing.Color.Magenta
         Me.打开OToolStripMenuItem.Name = "打开OToolStripMenuItem"
         Me.打开OToolStripMenuItem.ShortcutKeys = CType((System.Windows.Forms.Keys.Control Or System.Windows.Forms.Keys.O), System.Windows.Forms.Keys)
-        Me.打开OToolStripMenuItem.Size = New System.Drawing.Size(180, 22)
+        Me.打开OToolStripMenuItem.Size = New System.Drawing.Size(165, 22)
         Me.打开OToolStripMenuItem.Text = "打开(&O)"
         '
         '退出XToolStripMenuItem
@@ -135,9 +135,9 @@ Partial Class home
         '
         'GroupBox1
         '
-        Me.GroupBox1.Controls.Add(Me.Button3)
-        Me.GroupBox1.Controls.Add(Me.Button2)
-        Me.GroupBox1.Controls.Add(Me.Button1)
+        Me.GroupBox1.Controls.Add(Me.Button_New)
+        Me.GroupBox1.Controls.Add(Me.Button_Exit)
+        Me.GroupBox1.Controls.Add(Me.Button_Open)
         Me.GroupBox1.Location = New System.Drawing.Point(25, 211)
         Me.GroupBox1.Name = "GroupBox1"
         Me.GroupBox1.Size = New System.Drawing.Size(224, 195)
@@ -145,37 +145,37 @@ Partial Class home
         Me.GroupBox1.TabStop = False
         Me.GroupBox1.Text = "功能按钮"
         '
-        'Button3
+        'Button_New
         '
-        Me.Button3.Font = New System.Drawing.Font("宋体", 16.0!)
-        Me.Button3.Image = Global.FTSCF.My.Resources.Resources.newproject
-        Me.Button3.ImageAlign = System.Drawing.ContentAlignment.BottomCenter
-        Me.Button3.Location = New System.Drawing.Point(13, 25)
-        Me.Button3.Name = "Button3"
-        Me.Button3.Size = New System.Drawing.Size(192, 43)
-        Me.Button3.TabIndex = 2
-        Me.Button3.Text = "Button3"
-        Me.Button3.UseVisualStyleBackColor = True
+        Me.Button_New.Font = New System.Drawing.Font("宋体", 16.0!)
+        Me.Button_New.Image = Global.FTSCF.My.Resources.Resources.newproject
+        Me.Button_New.ImageAlign = System.Drawing.ContentAlignment.BottomCenter
+        Me.Button_New.Location = New System.Drawing.Point(13, 25)
+        Me.Button_New.Name = "Button_New"
+        Me.Button_New.Size = New System.Drawing.Size(192, 43)
+        Me.Button_New.TabIndex = 2
+        Me.Button_New.Text = "Button_New"
+        Me.Button_New.UseVisualStyleBackColor = True
         '
-        'Button2
+        'Button_Exit
         '
-        Me.Button2.Font = New System.Drawing.Font("宋体", 16.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(134, Byte))
-        Me.Button2.Location = New System.Drawing.Point(13, 131)
-        Me.Button2.Name = "Button2"
-        Me.Button2.Size = New System.Drawing.Size(193, 51)
-        Me.Button2.TabIndex = 1
-        Me.Button2.Text = "Button1"
-        Me.Button2.UseVisualStyleBackColor = True
+        Me.Button_Exit.Font = New System.Drawing.Font("宋体", 16.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(134, Byte))
+        Me.Button_Exit.Location = New System.Drawing.Point(13, 131)
+        Me.Button_Exit.Name = "Button_Exit"
+        Me.Button_Exit.Size = New System.Drawing.Size(193, 51)
+        Me.Button_Exit.TabIndex = 1
+        Me.Button_Exit.Text = "Button_Exit"
+        Me.Button_Exit.UseVisualStyleBackColor = True
         '
-        'Button1
+        'Button_Open
         '
-        Me.Button1.Font = New System.Drawing.Font("宋体", 16.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(134, Byte))
-        Me.Button1.Location = New System.Drawing.Point(13, 74)
-        Me.Button1.Name = "Button1"
-        Me.Button1.Size = New System.Drawing.Size(193, 51)
-        Me.Button1.TabIndex = 1
-        Me.Button1.Text = "Button1"
-        Me.Button1.UseVisualStyleBackColor = True
+        Me.Button_Open.Font = New System.Drawing.Font("宋体", 16.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(134, Byte))
+        Me.Button_Open.Location = New System.Drawing.Point(13, 74)
+        Me.Button_Open.Name = "Button_Open"
+        Me.Button_Open.Size = New System.Drawing.Size(193, 51)
+        Me.Button_Open.TabIndex = 1
+        Me.Button_Open.Text = "Button_Open"
+        Me.Button_Open.UseVisualStyleBackColor = True
         '
         'WebViewNews
         '
@@ -222,12 +222,12 @@ Partial Class home
     Friend WithEvents 关于AToolStripMenuItem As ToolStripMenuItem
     Friend WithEvents TabControl1 As TabControl
     Friend WithEvents TabPage1 As TabPage
-    Friend WithEvents Button2 As Button
-    Friend WithEvents Button1 As Button
+    Friend WithEvents Button_Exit As Button
+    Friend WithEvents Button_Open As Button
     Friend WithEvents WebViewNews As Microsoft.Web.WebView2.WinForms.WebView2
     Friend WithEvents GroupBox1 As GroupBox
     Friend WithEvents PictureBox1 As PictureBox
-    Friend WithEvents Button3 As Button
+    Friend WithEvents Button_New As Button
     Friend WithEvents FolderBrowserDialog1 As FolderBrowserDialog
     Friend WithEvents XinjianToolStripMenuItem As ToolStripMenuItem
 End Class
