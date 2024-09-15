@@ -9,7 +9,7 @@ Public Class Form1
         WebViewNews.CoreWebView2.Settings.IsScriptEnabled = True '启用webviewnews的js脚本
 
         '下面是显示新闻的webview的内容事件
-        Me.Text = My.Application.Info.ProductName + " " + String.Format("版本 {0}", My.Application.Info.Version.ToString)
+        Me.Text = My.Application.Info.ProductName
         Dim news As String = “<h1>欢迎使用" + My.Application.Info.ProductName + "<h1>
            <h2>版本号：” + My.Application.Info.Version.ToString + “</h2>
            <h2>此页面为 ” + My.Application.Info.ProductName + “ 首页测试界面</h2>
@@ -107,7 +107,7 @@ Public Class Form1
         ' 获取项目名称
         Dim projectName As String = InputBox("请输入项目名称：")
         If String.IsNullOrEmpty(projectName) Then
-            MessageBox.Show("项目名称不能为空。")
+            MessageBox.Show("项目名称不能为空。", "警告", MessageBoxButtons.OK, MessageBoxIcon.Information)
             Return
         End If
 
