@@ -1,5 +1,5 @@
 ﻿<Global.Microsoft.VisualBasic.CompilerServices.DesignerGenerated()> _
-Partial Class ieform
+Partial Class ie
     Inherits System.Windows.Forms.Form
 
     'Form 重写 Dispose，以清理组件列表。
@@ -34,14 +34,14 @@ Partial Class ieform
         Me.WebBrowser1.Size = New System.Drawing.Size(638, 609)
         Me.WebBrowser1.TabIndex = 0
         '
-        'ieform
+        'ie
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 12.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.ClientSize = New System.Drawing.Size(638, 609)
         Me.Controls.Add(Me.WebBrowser1)
-        Me.Name = "ieform"
-        Me.Text = "ieform"
+        Me.Name = "ie"
+        Me.Text = "ie"
         Me.ResumeLayout(False)
 
     End Sub

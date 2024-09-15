@@ -1,8 +1,8 @@
 ﻿Imports System.IO
 Imports Microsoft.Web.WebView2.Core
 Imports System.Reflection
-Public Class Form1
-    Private Async Sub Form1_Load(sender As Object, e As EventArgs) Handles MyBase.Load
+Public Class home
+    Private Async Sub home_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         Await WebViewNews.EnsureCoreWebView2Async(Nothing) '预加载显示新闻的webview
 
         WebViewNews.CoreWebView2.Settings.AreDefaultContextMenusEnabled = False  '禁用webviewnews的右键 菜单

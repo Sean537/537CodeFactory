@@ -1,5 +1,5 @@
 ﻿<Global.Microsoft.VisualBasic.CompilerServices.DesignerGenerated()>
-Partial Class Form1
+Partial Class home
     Inherits System.Windows.Forms.Form
 
     'Form 重写 Dispose，以清理组件列表。
@@ -22,7 +22,7 @@ Partial Class Form1
     '不要使用代码编辑器修改它。
     <System.Diagnostics.DebuggerStepThrough()>
     Private Sub InitializeComponent()
-        Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(Form1))
+        Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(home))
         Me.MenuStrip1 = New System.Windows.Forms.MenuStrip()
         Me.文件FToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.XinjianToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
@@ -191,7 +191,7 @@ Partial Class Form1
         Me.WebViewNews.TabIndex = 0
         Me.WebViewNews.ZoomFactor = 1.0R
         '
-        'Form1
+        'home
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 12.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
@@ -200,8 +200,8 @@ Partial Class Form1
         Me.Controls.Add(Me.MenuStrip1)
         Me.Icon = CType(resources.GetObject("$this.Icon"), System.Drawing.Icon)
         Me.MinimumSize = New System.Drawing.Size(960, 570)
-        Me.Name = "Form1"
-        Me.Text = "Form1"
+        Me.Name = "home"
+        Me.Text = "home"
         Me.MenuStrip1.ResumeLayout(False)
         Me.MenuStrip1.PerformLayout()
         Me.TabControl1.ResumeLayout(False)

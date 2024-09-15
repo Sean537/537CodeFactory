@@ -68,16 +68,16 @@ Public Class HTMLControl
     End Sub
 
     Private Sub ToolStripButton6_Click(sender As Object, e As EventArgs) Handles ToolStripButton6.Click
-        ieform.Show()
+        ie.Show()
         ToolStripButton6.ToolTipText = "IE浏览器内核"
-        ieform.Text = ToolStripButton6.ToolTipText
+        ie.Text = ToolStripButton6.ToolTipText
         Try
             Dim lines() As String = File.ReadAllLines("filepatchfile.txt")
             If lines.Length > 0 Then
                 Dim filepath As String = lines(0)
 
                 Dim htmltext As String = htmlEditor.Text
-                ieform.WebBrowser1.DocumentText = htmltext
+                ie.WebBrowser1.DocumentText = htmltext
                 File.WriteAllText(filepath, htmlEditor.Text)
             End If
 
@@ -93,7 +93,7 @@ Public Class HTMLControl
                 Dim filepath As String = lines(0)
                 htmlWebView.Source = New Uri(filepath)
                 Dim htmltext As String = htmlEditor.Text
-                ' ieform.WebBrowser1.DocumentText = htmltext
+                ' ie.WebBrowser1.DocumentText = htmltext
                 File.WriteAllText(filepath, htmlEditor.Text)
             End If
             htmlWebView.NavigateToString(htmlEditor.Text)
