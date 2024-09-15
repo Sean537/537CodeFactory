@@ -66,9 +66,9 @@ Partial Class home
         '
         'XinjianToolStripMenuItem
         '
-        Me.XinjianToolStripMenuItem.Image = Global.FTSCF.My.Resources.Resources.newproject
+        Me.XinjianToolStripMenuItem.Image = CType(resources.GetObject("XinjianToolStripMenuItem.Image"), System.Drawing.Image)
         Me.XinjianToolStripMenuItem.Name = "XinjianToolStripMenuItem"
-        Me.XinjianToolStripMenuItem.Size = New System.Drawing.Size(165, 22)
+        Me.XinjianToolStripMenuItem.Size = New System.Drawing.Size(180, 22)
         Me.XinjianToolStripMenuItem.Text = "新建项目(&N)"
         '
         '打开OToolStripMenuItem
@@ -77,13 +77,14 @@ Partial Class home
         Me.打开OToolStripMenuItem.ImageTransparentColor = System.Drawing.Color.Magenta
         Me.打开OToolStripMenuItem.Name = "打开OToolStripMenuItem"
         Me.打开OToolStripMenuItem.ShortcutKeys = CType((System.Windows.Forms.Keys.Control Or System.Windows.Forms.Keys.O), System.Windows.Forms.Keys)
-        Me.打开OToolStripMenuItem.Size = New System.Drawing.Size(165, 22)
+        Me.打开OToolStripMenuItem.Size = New System.Drawing.Size(180, 22)
         Me.打开OToolStripMenuItem.Text = "打开(&O)"
         '
         '退出XToolStripMenuItem
         '
+        Me.退出XToolStripMenuItem.Image = CType(resources.GetObject("退出XToolStripMenuItem.Image"), System.Drawing.Image)
         Me.退出XToolStripMenuItem.Name = "退出XToolStripMenuItem"
-        Me.退出XToolStripMenuItem.Size = New System.Drawing.Size(165, 22)
+        Me.退出XToolStripMenuItem.Size = New System.Drawing.Size(180, 22)
         Me.退出XToolStripMenuItem.Text = "退出(&X)"
         '
         '帮助HToolStripMenuItem
@@ -95,8 +96,9 @@ Partial Class home
         '
         '关于AToolStripMenuItem
         '
+        Me.关于AToolStripMenuItem.Image = CType(resources.GetObject("关于AToolStripMenuItem.Image"), System.Drawing.Image)
         Me.关于AToolStripMenuItem.Name = "关于AToolStripMenuItem"
-        Me.关于AToolStripMenuItem.Size = New System.Drawing.Size(125, 22)
+        Me.关于AToolStripMenuItem.Size = New System.Drawing.Size(180, 22)
         Me.关于AToolStripMenuItem.Text = "关于(&A)..."
         '
         'TabControl1
