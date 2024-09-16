@@ -14,19 +14,9 @@ Sean537：[wushaoquan666@outlook.com](mailto:wushaoquan666@outlook.com)
 
 ### 已实现功能
 
-1. 实时预览HTML网页和MarkDown文件，并支持打开、编辑、保存等功能
+1. 实时预览HTML网页创建，打开，编辑
 2. 支持 Chromium 内核和 IE 内核
 3. 支持file协议
-
-### 反馈
-
-## 安装
-
-## 使用
-
-## 开源
-
-## 开发
 
 开发环境：Microsoft Visual Studio
 
