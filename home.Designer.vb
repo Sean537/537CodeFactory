@@ -68,7 +68,7 @@ Partial Class home
         '
         Me.XinjianToolStripMenuItem.Image = CType(resources.GetObject("XinjianToolStripMenuItem.Image"), System.Drawing.Image)
         Me.XinjianToolStripMenuItem.Name = "XinjianToolStripMenuItem"
-        Me.XinjianToolStripMenuItem.Size = New System.Drawing.Size(180, 22)
+        Me.XinjianToolStripMenuItem.Size = New System.Drawing.Size(165, 22)
         Me.XinjianToolStripMenuItem.Text = "新建项目(&N)"
         '
         '打开OToolStripMenuItem
@@ -77,14 +77,14 @@ Partial Class home
         Me.打开OToolStripMenuItem.ImageTransparentColor = System.Drawing.Color.Magenta
         Me.打开OToolStripMenuItem.Name = "打开OToolStripMenuItem"
         Me.打开OToolStripMenuItem.ShortcutKeys = CType((System.Windows.Forms.Keys.Control Or System.Windows.Forms.Keys.O), System.Windows.Forms.Keys)
-        Me.打开OToolStripMenuItem.Size = New System.Drawing.Size(180, 22)
+        Me.打开OToolStripMenuItem.Size = New System.Drawing.Size(165, 22)
         Me.打开OToolStripMenuItem.Text = "打开(&O)"
         '
         '退出XToolStripMenuItem
         '
         Me.退出XToolStripMenuItem.Image = CType(resources.GetObject("退出XToolStripMenuItem.Image"), System.Drawing.Image)
         Me.退出XToolStripMenuItem.Name = "退出XToolStripMenuItem"
-        Me.退出XToolStripMenuItem.Size = New System.Drawing.Size(180, 22)
+        Me.退出XToolStripMenuItem.Size = New System.Drawing.Size(165, 22)
         Me.退出XToolStripMenuItem.Text = "退出(&X)"
         '
         '帮助HToolStripMenuItem
@@ -98,7 +98,7 @@ Partial Class home
         '
         Me.关于AToolStripMenuItem.Image = CType(resources.GetObject("关于AToolStripMenuItem.Image"), System.Drawing.Image)
         Me.关于AToolStripMenuItem.Name = "关于AToolStripMenuItem"
-        Me.关于AToolStripMenuItem.Size = New System.Drawing.Size(180, 22)
+        Me.关于AToolStripMenuItem.Size = New System.Drawing.Size(125, 22)
         Me.关于AToolStripMenuItem.Text = "关于(&A)..."
         '
         'TabControl_Home
@@ -143,7 +143,7 @@ Partial Class home
         Me.GroupBox_Home.Controls.Add(Me.Button_Open)
         Me.GroupBox_Home.Location = New System.Drawing.Point(25, 211)
         Me.GroupBox_Home.Name = "GroupBox_Home"
-        Me.GroupBox_Home.Size = New System.Drawing.Size(224, 195)
+        Me.GroupBox_Home.Size = New System.Drawing.Size(224, 228)
         Me.GroupBox_Home.TabIndex = 2
         Me.GroupBox_Home.TabStop = False
         Me.GroupBox_Home.Text = "您可以"
@@ -151,33 +151,40 @@ Partial Class home
         'Button_New
         '
         Me.Button_New.Font = New System.Drawing.Font("宋体", 16.0!)
-        Me.Button_New.Image = Global.FTSCF.My.Resources.Resources.newproject
-        Me.Button_New.ImageAlign = System.Drawing.ContentAlignment.BottomCenter
-        Me.Button_New.Location = New System.Drawing.Point(13, 25)
+        Me.Button_New.Image = CType(resources.GetObject("Button_New.Image"), System.Drawing.Image)
+        Me.Button_New.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
+        Me.Button_New.Location = New System.Drawing.Point(13, 22)
         Me.Button_New.Name = "Button_New"
-        Me.Button_New.Size = New System.Drawing.Size(192, 43)
+        Me.Button_New.Size = New System.Drawing.Size(193, 60)
         Me.Button_New.TabIndex = 2
         Me.Button_New.Text = "Button_New"
+        Me.Button_New.TextAlign = System.Drawing.ContentAlignment.MiddleRight
         Me.Button_New.UseVisualStyleBackColor = True
         '
         'Button_Exit
         '
         Me.Button_Exit.Font = New System.Drawing.Font("宋体", 16.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(134, Byte))
-        Me.Button_Exit.Location = New System.Drawing.Point(13, 131)
+        Me.Button_Exit.Image = CType(resources.GetObject("Button_Exit.Image"), System.Drawing.Image)
+        Me.Button_Exit.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
+        Me.Button_Exit.Location = New System.Drawing.Point(13, 154)
         Me.Button_Exit.Name = "Button_Exit"
-        Me.Button_Exit.Size = New System.Drawing.Size(193, 51)
+        Me.Button_Exit.Size = New System.Drawing.Size(193, 60)
         Me.Button_Exit.TabIndex = 1
         Me.Button_Exit.Text = "Button_Exit"
+        Me.Button_Exit.TextAlign = System.Drawing.ContentAlignment.MiddleRight
         Me.Button_Exit.UseVisualStyleBackColor = True
         '
         'Button_Open
         '
         Me.Button_Open.Font = New System.Drawing.Font("宋体", 16.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(134, Byte))
-        Me.Button_Open.Location = New System.Drawing.Point(13, 74)
+        Me.Button_Open.Image = CType(resources.GetObject("Button_Open.Image"), System.Drawing.Image)
+        Me.Button_Open.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
+        Me.Button_Open.Location = New System.Drawing.Point(13, 88)
         Me.Button_Open.Name = "Button_Open"
-        Me.Button_Open.Size = New System.Drawing.Size(193, 51)
+        Me.Button_Open.Size = New System.Drawing.Size(193, 60)
         Me.Button_Open.TabIndex = 1
         Me.Button_Open.Text = "Button_Open"
+        Me.Button_Open.TextAlign = System.Drawing.ContentAlignment.MiddleRight
         Me.Button_Open.UseVisualStyleBackColor = True
         '
         'WebViewNews
