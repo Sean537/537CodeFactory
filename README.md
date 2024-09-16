@@ -18,6 +18,11 @@ Sean537：[wushaoquan666@outlook.com](mailto:wushaoquan666@outlook.com)
 2. 支持 Chromium 内核和 IE 内核
 3. 支持file协议
 
+### 使用的Nuget程序包
+FastColoredTextBox
+Microsoft WebView2
+
+### 关于部署
 开发环境：Microsoft Visual Studio
 
 编程语言：Visual Basic .NET
