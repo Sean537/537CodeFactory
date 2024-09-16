@@ -48,9 +48,9 @@ Partial Class HTMLControl
         Me.FontDialog1 = New System.Windows.Forms.FontDialog()
         Me.StatusStrip1 = New System.Windows.Forms.StatusStrip()
         Me.ToolStripStatusLabel1 = New System.Windows.Forms.ToolStripStatusLabel()
-        Me.TableLayoutPanel3 = New System.Windows.Forms.TableLayoutPanel()
         Me.ToolStripStatusLabel2 = New System.Windows.Forms.ToolStripStatusLabel()
         Me.ToolStripStatusLabel3 = New System.Windows.Forms.ToolStripStatusLabel()
+        Me.TableLayoutPanel3 = New System.Windows.Forms.TableLayoutPanel()
         CType(Me.SplitContainer1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SplitContainer1.Panel1.SuspendLayout()
         Me.SplitContainer1.Panel2.SuspendLayout()
@@ -78,7 +78,7 @@ Partial Class HTMLControl
         'SplitContainer1.Panel2
         '
         Me.SplitContainer1.Panel2.Controls.Add(Me.TableLayoutPanel2)
-        Me.SplitContainer1.Size = New System.Drawing.Size(941, 574)
+        Me.SplitContainer1.Size = New System.Drawing.Size(941, 582)
         Me.SplitContainer1.SplitterDistance = 454
         Me.SplitContainer1.TabIndex = 1
         '
@@ -94,7 +94,7 @@ Partial Class HTMLControl
         Me.TableLayoutPanel1.RowCount = 2
         Me.TableLayoutPanel1.RowStyles.Add(New System.Windows.Forms.RowStyle())
         Me.TableLayoutPanel1.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100.0!))
-        Me.TableLayoutPanel1.Size = New System.Drawing.Size(454, 574)
+        Me.TableLayoutPanel1.Size = New System.Drawing.Size(454, 582)
         Me.TableLayoutPanel1.TabIndex = 0
         '
         'htmlEditor
@@ -124,7 +124,7 @@ Partial Class HTMLControl
         Me.htmlEditor.RightBracket2 = Global.Microsoft.VisualBasic.ChrW(41)
         Me.htmlEditor.SelectionColor = System.Drawing.Color.FromArgb(CType(CType(60, Byte), Integer), CType(CType(0, Byte), Integer), CType(CType(0, Byte), Integer), CType(CType(255, Byte), Integer))
         Me.htmlEditor.ServiceColors = CType(resources.GetObject("htmlEditor.ServiceColors"), FastColoredTextBoxNS.ServiceColors)
-        Me.htmlEditor.Size = New System.Drawing.Size(448, 536)
+        Me.htmlEditor.Size = New System.Drawing.Size(448, 544)
         Me.htmlEditor.TabIndex = 1
         Me.htmlEditor.Zoom = 100
         '
@@ -142,7 +142,7 @@ Partial Class HTMLControl
         'ToolStripButton1
         '
         Me.ToolStripButton1.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image
-        Me.ToolStripButton1.Image = Global.FTSCF.My.Resources.Resources.typography
+        Me.ToolStripButton1.Image = CType(resources.GetObject("ToolStripButton1.Image"), System.Drawing.Image)
         Me.ToolStripButton1.ImageTransparentColor = System.Drawing.Color.Magenta
         Me.ToolStripButton1.Name = "ToolStripButton1"
         Me.ToolStripButton1.Size = New System.Drawing.Size(29, 29)
@@ -158,7 +158,7 @@ Partial Class HTMLControl
         'ToolStripButton7
         '
         Me.ToolStripButton7.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image
-        Me.ToolStripButton7.Image = Global.FTSCF.My.Resources.Resources.code
+        Me.ToolStripButton7.Image = CType(resources.GetObject("ToolStripButton7.Image"), System.Drawing.Image)
         Me.ToolStripButton7.ImageTransparentColor = System.Drawing.Color.Magenta
         Me.ToolStripButton7.Name = "ToolStripButton7"
         Me.ToolStripButton7.Size = New System.Drawing.Size(29, 29)
@@ -169,7 +169,7 @@ Partial Class HTMLControl
         'ToolStripButton8
         '
         Me.ToolStripButton8.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image
-        Me.ToolStripButton8.Image = Global.FTSCF.My.Resources.Resources.image
+        Me.ToolStripButton8.Image = CType(resources.GetObject("ToolStripButton8.Image"), System.Drawing.Image)
         Me.ToolStripButton8.ImageTransparentColor = System.Drawing.Color.Magenta
         Me.ToolStripButton8.Name = "ToolStripButton8"
         Me.ToolStripButton8.Size = New System.Drawing.Size(29, 29)
@@ -180,7 +180,7 @@ Partial Class HTMLControl
         'ToolStripButton9
         '
         Me.ToolStripButton9.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image
-        Me.ToolStripButton9.Image = Global.FTSCF.My.Resources.Resources.link
+        Me.ToolStripButton9.Image = CType(resources.GetObject("ToolStripButton9.Image"), System.Drawing.Image)
         Me.ToolStripButton9.ImageTransparentColor = System.Drawing.Color.Magenta
         Me.ToolStripButton9.Name = "ToolStripButton9"
         Me.ToolStripButton9.Size = New System.Drawing.Size(29, 29)
@@ -200,7 +200,7 @@ Partial Class HTMLControl
         Me.TableLayoutPanel2.RowCount = 2
         Me.TableLayoutPanel2.RowStyles.Add(New System.Windows.Forms.RowStyle())
         Me.TableLayoutPanel2.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100.0!))
-        Me.TableLayoutPanel2.Size = New System.Drawing.Size(483, 574)
+        Me.TableLayoutPanel2.Size = New System.Drawing.Size(483, 582)
         Me.TableLayoutPanel2.TabIndex = 1
         '
         'ToolStrip2
@@ -217,7 +217,7 @@ Partial Class HTMLControl
         'ToolStripButton2
         '
         Me.ToolStripButton2.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image
-        Me.ToolStripButton2.Image = Global.FTSCF.My.Resources.Resources.arrow_left
+        Me.ToolStripButton2.Image = CType(resources.GetObject("ToolStripButton2.Image"), System.Drawing.Image)
         Me.ToolStripButton2.ImageTransparentColor = System.Drawing.Color.Magenta
         Me.ToolStripButton2.Name = "ToolStripButton2"
         Me.ToolStripButton2.Size = New System.Drawing.Size(29, 29)
@@ -228,7 +228,7 @@ Partial Class HTMLControl
         'ToolStripButton4
         '
         Me.ToolStripButton4.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image
-        Me.ToolStripButton4.Image = Global.FTSCF.My.Resources.Resources.arrow_right
+        Me.ToolStripButton4.Image = CType(resources.GetObject("ToolStripButton4.Image"), System.Drawing.Image)
         Me.ToolStripButton4.ImageTransparentColor = System.Drawing.Color.Magenta
         Me.ToolStripButton4.Name = "ToolStripButton4"
         Me.ToolStripButton4.Size = New System.Drawing.Size(29, 29)
@@ -239,7 +239,7 @@ Partial Class HTMLControl
         'ToolStripButton3
         '
         Me.ToolStripButton3.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image
-        Me.ToolStripButton3.Image = Global.FTSCF.My.Resources.Resources.back_right
+        Me.ToolStripButton3.Image = CType(resources.GetObject("ToolStripButton3.Image"), System.Drawing.Image)
         Me.ToolStripButton3.ImageTransparentColor = System.Drawing.Color.Magenta
         Me.ToolStripButton3.Name = "ToolStripButton3"
         Me.ToolStripButton3.Size = New System.Drawing.Size(29, 29)
@@ -255,7 +255,7 @@ Partial Class HTMLControl
         'ToolStripButton11
         '
         Me.ToolStripButton11.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image
-        Me.ToolStripButton11.Image = Global.FTSCF.My.Resources.Resources.trending_up
+        Me.ToolStripButton11.Image = CType(resources.GetObject("ToolStripButton11.Image"), System.Drawing.Image)
         Me.ToolStripButton11.ImageTransparentColor = System.Drawing.Color.Magenta
         Me.ToolStripButton11.Name = "ToolStripButton11"
         Me.ToolStripButton11.Size = New System.Drawing.Size(29, 29)
@@ -266,7 +266,7 @@ Partial Class HTMLControl
         'ToolStripButton5
         '
         Me.ToolStripButton5.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image
-        Me.ToolStripButton5.Image = Global.FTSCF.My.Resources.Resources.code_alt
+        Me.ToolStripButton5.Image = CType(resources.GetObject("ToolStripButton5.Image"), System.Drawing.Image)
         Me.ToolStripButton5.ImageTransparentColor = System.Drawing.Color.Magenta
         Me.ToolStripButton5.Name = "ToolStripButton5"
         Me.ToolStripButton5.Size = New System.Drawing.Size(29, 29)
@@ -296,7 +296,7 @@ Partial Class HTMLControl
         Me.htmlWebView.Dock = System.Windows.Forms.DockStyle.Fill
         Me.htmlWebView.Location = New System.Drawing.Point(3, 35)
         Me.htmlWebView.Name = "htmlWebView"
-        Me.htmlWebView.Size = New System.Drawing.Size(477, 536)
+        Me.htmlWebView.Size = New System.Drawing.Size(477, 544)
         Me.htmlWebView.TabIndex = 1
         Me.htmlWebView.ZoomFactor = 1.0R
         '
@@ -304,19 +304,28 @@ Partial Class HTMLControl
         '
         Me.StatusStrip1.ImageScalingSize = New System.Drawing.Size(25, 25)
         Me.StatusStrip1.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.ToolStripStatusLabel1, Me.ToolStripStatusLabel2, Me.ToolStripStatusLabel3})
-        Me.StatusStrip1.Location = New System.Drawing.Point(0, 580)
+        Me.StatusStrip1.Location = New System.Drawing.Point(0, 588)
         Me.StatusStrip1.Name = "StatusStrip1"
-        Me.StatusStrip1.Size = New System.Drawing.Size(947, 30)
+        Me.StatusStrip1.Size = New System.Drawing.Size(947, 22)
         Me.StatusStrip1.TabIndex = 2
         Me.StatusStrip1.Text = "StatusStrip1"
         '
         'ToolStripStatusLabel1
         '
         Me.ToolStripStatusLabel1.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image
-        Me.ToolStripStatusLabel1.Image = Global.FTSCF.My.Resources.Resources.swap_vertical
         Me.ToolStripStatusLabel1.Name = "ToolStripStatusLabel1"
-        Me.ToolStripStatusLabel1.Size = New System.Drawing.Size(25, 25)
+        Me.ToolStripStatusLabel1.Size = New System.Drawing.Size(0, 17)
         Me.ToolStripStatusLabel1.Text = "ToolStripStatusLabel1"
+        '
+        'ToolStripStatusLabel2
+        '
+        Me.ToolStripStatusLabel2.Name = "ToolStripStatusLabel2"
+        Me.ToolStripStatusLabel2.Size = New System.Drawing.Size(0, 17)
+        '
+        'ToolStripStatusLabel3
+        '
+        Me.ToolStripStatusLabel3.Name = "ToolStripStatusLabel3"
+        Me.ToolStripStatusLabel3.Size = New System.Drawing.Size(0, 17)
         '
         'TableLayoutPanel3
         '
@@ -332,16 +341,6 @@ Partial Class HTMLControl
         Me.TableLayoutPanel3.RowStyles.Add(New System.Windows.Forms.RowStyle())
         Me.TableLayoutPanel3.Size = New System.Drawing.Size(947, 610)
         Me.TableLayoutPanel3.TabIndex = 3
-        '
-        'ToolStripStatusLabel2
-        '
-        Me.ToolStripStatusLabel2.Name = "ToolStripStatusLabel2"
-        Me.ToolStripStatusLabel2.Size = New System.Drawing.Size(0, 25)
-        '
-        'ToolStripStatusLabel3
-        '
-        Me.ToolStripStatusLabel3.Name = "ToolStripStatusLabel3"
-        Me.ToolStripStatusLabel3.Size = New System.Drawing.Size(0, 25)
         '
         'HTMLControl
         '
