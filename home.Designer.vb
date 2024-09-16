@@ -30,20 +30,20 @@ Partial Class home
         Me.退出XToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.帮助HToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.关于AToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
-        Me.TabControl1 = New System.Windows.Forms.TabControl()
+        Me.TabControl_Home = New System.Windows.Forms.TabControl()
         Me.TabPage1 = New System.Windows.Forms.TabPage()
         Me.PictureBox1 = New System.Windows.Forms.PictureBox()
-        Me.GroupBox1 = New System.Windows.Forms.GroupBox()
+        Me.GroupBox_Home = New System.Windows.Forms.GroupBox()
         Me.Button_New = New System.Windows.Forms.Button()
         Me.Button_Exit = New System.Windows.Forms.Button()
         Me.Button_Open = New System.Windows.Forms.Button()
         Me.WebViewNews = New Microsoft.Web.WebView2.WinForms.WebView2()
         Me.FolderBrowserDialog1 = New System.Windows.Forms.FolderBrowserDialog()
         Me.MenuStrip1.SuspendLayout()
-        Me.TabControl1.SuspendLayout()
+        Me.TabControl_Home.SuspendLayout()
         Me.TabPage1.SuspendLayout()
         CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).BeginInit()
-        Me.GroupBox1.SuspendLayout()
+        Me.GroupBox_Home.SuspendLayout()
         CType(Me.WebViewNews, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
@@ -101,28 +101,29 @@ Partial Class home
         Me.关于AToolStripMenuItem.Size = New System.Drawing.Size(180, 22)
         Me.关于AToolStripMenuItem.Text = "关于(&A)..."
         '
-        'TabControl1
+        'TabControl_Home
         '
-        Me.TabControl1.Controls.Add(Me.TabPage1)
-        Me.TabControl1.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.TabControl1.Font = New System.Drawing.Font("微软雅黑", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(134, Byte))
-        Me.TabControl1.Location = New System.Drawing.Point(0, 25)
-        Me.TabControl1.Name = "TabControl1"
-        Me.TabControl1.SelectedIndex = 0
-        Me.TabControl1.Size = New System.Drawing.Size(1016, 595)
-        Me.TabControl1.TabIndex = 2
+        Me.TabControl_Home.Controls.Add(Me.TabPage1)
+        Me.TabControl_Home.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.TabControl_Home.Font = New System.Drawing.Font("微软雅黑", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(134, Byte))
+        Me.TabControl_Home.HotTrack = True
+        Me.TabControl_Home.Location = New System.Drawing.Point(0, 25)
+        Me.TabControl_Home.Name = "TabControl_Home"
+        Me.TabControl_Home.SelectedIndex = 0
+        Me.TabControl_Home.Size = New System.Drawing.Size(1016, 595)
+        Me.TabControl_Home.TabIndex = 2
         '
         'TabPage1
         '
         Me.TabPage1.Controls.Add(Me.PictureBox1)
-        Me.TabPage1.Controls.Add(Me.GroupBox1)
+        Me.TabPage1.Controls.Add(Me.GroupBox_Home)
         Me.TabPage1.Controls.Add(Me.WebViewNews)
         Me.TabPage1.Location = New System.Drawing.Point(4, 26)
         Me.TabPage1.Name = "TabPage1"
         Me.TabPage1.Padding = New System.Windows.Forms.Padding(3)
         Me.TabPage1.Size = New System.Drawing.Size(1008, 565)
         Me.TabPage1.TabIndex = 0
-        Me.TabPage1.Text = "开始窗口"
+        Me.TabPage1.Text = "首页"
         Me.TabPage1.UseVisualStyleBackColor = True
         '
         'PictureBox1
@@ -135,17 +136,17 @@ Partial Class home
         Me.PictureBox1.TabIndex = 3
         Me.PictureBox1.TabStop = False
         '
-        'GroupBox1
+        'GroupBox_Home
         '
-        Me.GroupBox1.Controls.Add(Me.Button_New)
-        Me.GroupBox1.Controls.Add(Me.Button_Exit)
-        Me.GroupBox1.Controls.Add(Me.Button_Open)
-        Me.GroupBox1.Location = New System.Drawing.Point(25, 211)
-        Me.GroupBox1.Name = "GroupBox1"
-        Me.GroupBox1.Size = New System.Drawing.Size(224, 195)
-        Me.GroupBox1.TabIndex = 2
-        Me.GroupBox1.TabStop = False
-        Me.GroupBox1.Text = "功能按钮"
+        Me.GroupBox_Home.Controls.Add(Me.Button_New)
+        Me.GroupBox_Home.Controls.Add(Me.Button_Exit)
+        Me.GroupBox_Home.Controls.Add(Me.Button_Open)
+        Me.GroupBox_Home.Location = New System.Drawing.Point(25, 211)
+        Me.GroupBox_Home.Name = "GroupBox_Home"
+        Me.GroupBox_Home.Size = New System.Drawing.Size(224, 195)
+        Me.GroupBox_Home.TabIndex = 2
+        Me.GroupBox_Home.TabStop = False
+        Me.GroupBox_Home.Text = "您可以"
         '
         'Button_New
         '
@@ -198,7 +199,7 @@ Partial Class home
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 12.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.ClientSize = New System.Drawing.Size(1016, 620)
-        Me.Controls.Add(Me.TabControl1)
+        Me.Controls.Add(Me.TabControl_Home)
         Me.Controls.Add(Me.MenuStrip1)
         Me.Icon = CType(resources.GetObject("$this.Icon"), System.Drawing.Icon)
         Me.MinimumSize = New System.Drawing.Size(960, 570)
@@ -206,10 +207,10 @@ Partial Class home
         Me.Text = "home"
         Me.MenuStrip1.ResumeLayout(False)
         Me.MenuStrip1.PerformLayout()
-        Me.TabControl1.ResumeLayout(False)
+        Me.TabControl_Home.ResumeLayout(False)
         Me.TabPage1.ResumeLayout(False)
         CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).EndInit()
-        Me.GroupBox1.ResumeLayout(False)
+        Me.GroupBox_Home.ResumeLayout(False)
         CType(Me.WebViewNews, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
         Me.PerformLayout()
@@ -222,12 +223,12 @@ Partial Class home
     Friend WithEvents 退出XToolStripMenuItem As ToolStripMenuItem
     Friend WithEvents 帮助HToolStripMenuItem As ToolStripMenuItem
     Friend WithEvents 关于AToolStripMenuItem As ToolStripMenuItem
-    Friend WithEvents TabControl1 As TabControl
+    Friend WithEvents TabControl_Home As TabControl
     Friend WithEvents TabPage1 As TabPage
     Friend WithEvents Button_Exit As Button
     Friend WithEvents Button_Open As Button
     Friend WithEvents WebViewNews As Microsoft.Web.WebView2.WinForms.WebView2
-    Friend WithEvents GroupBox1 As GroupBox
+    Friend WithEvents GroupBox_Home As GroupBox
     Friend WithEvents PictureBox1 As PictureBox
     Friend WithEvents Button_New As Button
     Friend WithEvents FolderBrowserDialog1 As FolderBrowserDialog

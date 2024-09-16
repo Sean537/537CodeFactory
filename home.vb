@@ -63,11 +63,11 @@ Public Class home
             File.WriteAllText("filepatchfile.txt", filePath)
 
             '移除欢迎页
-            TabControl1.TabPages.Clear()
+            TabControl_Home.TabPages.Clear()
 
             ' 添加新选项卡
             Dim newTabPage As New TabPage(filePath)
-            TabControl1.TabPages.Add(newTabPage)
+            TabControl_Home.TabPages.Add(newTabPage)
             Dim Control1 As New HTMLControl
             newTabPage.Controls.Add(Control1)
             Control1.Dock = DockStyle.Fill
@@ -144,11 +144,11 @@ Public Class home
                 File.WriteAllText(patchFilePath, contentToWrite)
 
                 ' 移除欢迎页
-                TabControl1.TabPages.Clear()
+                TabControl_Home.TabPages.Clear()
 
                 ' 添加新选项卡
                 Dim newTabPage As New TabPage(htmlFilePath)
-                TabControl1.TabPages.Add(newTabPage)
+                TabControl_Home.TabPages.Add(newTabPage)
                 Dim control1 As New HTMLControl
                 newTabPage.Controls.Add(control1)
                 control1.Dock = DockStyle.Fill
