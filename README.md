@@ -19,7 +19,7 @@ Sean537：[wushaoquan666@outlook.com](mailto:wushaoquan666@outlook.com)
 3. 支持file协议
 
 ### 使用的Nuget程序包
-FastColoredTextBox
+FastColoredTextBox<br>
 Microsoft WebView2
 
 ### 关于部署
