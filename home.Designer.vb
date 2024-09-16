@@ -118,6 +118,8 @@ Partial Class home
         Me.TabPage1.Controls.Add(Me.PictureBox1)
         Me.TabPage1.Controls.Add(Me.GroupBox_Home)
         Me.TabPage1.Controls.Add(Me.WebViewNews)
+        Me.TabPage1.ForeColor = System.Drawing.SystemColors.ControlText
+        Me.TabPage1.ImeMode = System.Windows.Forms.ImeMode.NoControl
         Me.TabPage1.Location = New System.Drawing.Point(4, 26)
         Me.TabPage1.Name = "TabPage1"
         Me.TabPage1.Padding = New System.Windows.Forms.Padding(3)
