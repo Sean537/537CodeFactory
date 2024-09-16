@@ -152,6 +152,7 @@ Partial Class home
         '
         'Button_New
         '
+        Me.Button_New.Cursor = System.Windows.Forms.Cursors.Hand
         Me.Button_New.Font = New System.Drawing.Font("宋体", 16.0!)
         Me.Button_New.Image = CType(resources.GetObject("Button_New.Image"), System.Drawing.Image)
         Me.Button_New.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
@@ -165,6 +166,7 @@ Partial Class home
         '
         'Button_Exit
         '
+        Me.Button_Exit.Cursor = System.Windows.Forms.Cursors.Hand
         Me.Button_Exit.Font = New System.Drawing.Font("宋体", 16.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(134, Byte))
         Me.Button_Exit.Image = CType(resources.GetObject("Button_Exit.Image"), System.Drawing.Image)
         Me.Button_Exit.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
@@ -178,6 +180,7 @@ Partial Class home
         '
         'Button_Open
         '
+        Me.Button_Open.Cursor = System.Windows.Forms.Cursors.Hand
         Me.Button_Open.Font = New System.Drawing.Font("宋体", 16.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(134, Byte))
         Me.Button_Open.Image = CType(resources.GetObject("Button_Open.Image"), System.Drawing.Image)
         Me.Button_Open.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
